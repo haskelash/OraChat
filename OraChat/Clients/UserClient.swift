@@ -37,6 +37,12 @@ class UserClient {
                 if let JSON = response.result.value {
                     success()
                     print("JSON: \(JSON)")
+
+                    if let email = JSON["data"]??["token"] as? String,
+                        let token = JSON["data"]??["token"] as? String {
+
+                        saveToKeychain(email: email, token: token)
+                    }
                 }
             })
     }
@@ -52,6 +58,12 @@ class UserClient {
                 if let JSON = response.result.value {
                     success()
                     print("JSON: \(JSON)")
+
+                    if let email = JSON["data"]??["token"] as? String,
+                        let token = JSON["data"]??["token"] as? String {
+
+                        saveToKeychain(email: email, token: token)
+                    }
                 }
             })
     }

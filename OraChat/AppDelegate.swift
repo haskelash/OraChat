@@ -17,13 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-//        if loggedIn() {
+        if let _ = fetchTokenFromKeychain() {} else {
             let registrationVC = self.window?.rootViewController?.storyboard?
                 .instantiateViewControllerWithIdentifier("AccountFormViewController") as? AccountFormViewController
             self.window?.rootViewController = registrationVC
-
             registrationVC?.setUpForRegistration()
-//        }
+        }
 
         return true
     }
