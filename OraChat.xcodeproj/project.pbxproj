@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7698C7FD5826E067EA2E7EBF /* Pods_OraChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95697A679B40A61E2BD3408D /* Pods_OraChatTests.framework */; };
+		7D96E2EB0B38DD538350914D /* Pods_OraChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5615E9F5450315F8B3BF3C /* Pods_OraChatUITests.framework */; };
+		81F27250DD1DCEA9DA9D4553 /* Pods_OraChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE1701612B5A1F3BAD1FDB /* Pods_OraChat.framework */; };
 		8B2CA2C01D6B566000FCDC7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2CA2BF1D6B566000FCDC7B /* AppDelegate.swift */; };
 		8B2CA2C21D6B566000FCDC7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2CA2C11D6B566000FCDC7B /* ViewController.swift */; };
 		8B2CA2C51D6B566000FCDC7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2CA2C31D6B566000FCDC7B /* Main.storyboard */; };
@@ -35,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0308049C50FF81ABF3738A9C /* Pods-OraChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChat/Pods-OraChat.release.xcconfig"; sourceTree = "<group>"; };
+		1A271B86CA115797220E0559 /* Pods-OraChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatUITests/Pods-OraChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		46F8FAF7E7C37C827A00111F /* Pods-OraChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		57E7B5F2948F151750DA0CD7 /* Pods-OraChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChat/Pods-OraChat.debug.xcconfig"; sourceTree = "<group>"; };
+		76EE1701612B5A1F3BAD1FDB /* Pods_OraChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2CA2BC1D6B566000FCDC7B /* OraChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2CA2BF1D6B566000FCDC7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B2CA2C11D6B566000FCDC7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +57,10 @@
 		8B2CA2DE1D6B566000FCDC7B /* OraChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OraChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2CA2E21D6B566000FCDC7B /* OraChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraChatUITests.swift; sourceTree = "<group>"; };
 		8B2CA2E41D6B566000FCDC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95697A679B40A61E2BD3408D /* Pods_OraChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B53CE5C3A4ED01161E162A3 /* Pods-OraChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE7255C34D280CBE012BEE2D /* Pods-OraChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatUITests/Pods-OraChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FF5615E9F5450315F8B3BF3C /* Pods_OraChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F27250DD1DCEA9DA9D4553 /* Pods_OraChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7698C7FD5826E067EA2E7EBF /* Pods_OraChatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D96E2EB0B38DD538350914D /* Pods_OraChatUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		788FBA3C0DD1BADEEA5141A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76EE1701612B5A1F3BAD1FDB /* Pods_OraChat.framework */,
+				95697A679B40A61E2BD3408D /* Pods_OraChatTests.framework */,
+				FF5615E9F5450315F8B3BF3C /* Pods_OraChatUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B2CA2B31D6B566000FCDC7B = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				8B2CA2D61D6B566000FCDC7B /* OraChatTests */,
 				8B2CA2E11D6B566000FCDC7B /* OraChatUITests */,
 				8B2CA2BD1D6B566000FCDC7B /* Products */,
+				D302952498B60E2CE996CB7A /* Pods */,
+				788FBA3C0DD1BADEEA5141A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,19 @@
 			path = OraChatUITests;
 			sourceTree = "<group>";
 		};
+		D302952498B60E2CE996CB7A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57E7B5F2948F151750DA0CD7 /* Pods-OraChat.debug.xcconfig */,
+				0308049C50FF81ABF3738A9C /* Pods-OraChat.release.xcconfig */,
+				9B53CE5C3A4ED01161E162A3 /* Pods-OraChatTests.debug.xcconfig */,
+				46F8FAF7E7C37C827A00111F /* Pods-OraChatTests.release.xcconfig */,
+				AE7255C34D280CBE012BEE2D /* Pods-OraChatUITests.debug.xcconfig */,
+				1A271B86CA115797220E0559 /* Pods-OraChatUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B2CA2E71D6B566000FCDC7B /* Build configuration list for PBXNativeTarget "OraChat" */;
 			buildPhases = (
+				9E954975BD27A27FF3FC8021 /* [CP] Check Pods Manifest.lock */,
 				8B2CA2B81D6B566000FCDC7B /* Sources */,
 				8B2CA2B91D6B566000FCDC7B /* Frameworks */,
 				8B2CA2BA1D6B566000FCDC7B /* Resources */,
+				6C9782FE37D124828E5DED64 /* [CP] Embed Pods Frameworks */,
+				2701C61BB7F29CA3E31E41FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B2CA2EA1D6B566000FCDC7B /* Build configuration list for PBXNativeTarget "OraChatTests" */;
 			buildPhases = (
+				655980416A428C1FAF466ECC /* [CP] Check Pods Manifest.lock */,
 				8B2CA2CF1D6B566000FCDC7B /* Sources */,
 				8B2CA2D01D6B566000FCDC7B /* Frameworks */,
 				8B2CA2D11D6B566000FCDC7B /* Resources */,
+				75A8E8BA530F066DDE0BC5C7 /* [CP] Embed Pods Frameworks */,
+				FFE58FC5B62948A5615340E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B2CA2ED1D6B566000FCDC7B /* Build configuration list for PBXNativeTarget "OraChatUITests" */;
 			buildPhases = (
+				F4BD7CD9A678F8C80FC71CB1 /* [CP] Check Pods Manifest.lock */,
 				8B2CA2DA1D6B566000FCDC7B /* Sources */,
 				8B2CA2DB1D6B566000FCDC7B /* Frameworks */,
 				8B2CA2DC1D6B566000FCDC7B /* Resources */,
+				D33AAC0B1E12E1AD13B5BDCB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +301,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2701C61BB7F29CA3E31E41FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OraChat/Pods-OraChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		655980416A428C1FAF466ECC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6C9782FE37D124828E5DED64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OraChat/Pods-OraChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75A8E8BA530F066DDE0BC5C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E954975BD27A27FF3FC8021 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D33AAC0B1E12E1AD13B5BDCB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OraChatUITests/Pods-OraChatUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4BD7CD9A678F8C80FC71CB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FFE58FC5B62948A5615340E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B2CA2B81D6B566000FCDC7B /* Sources */ = {
@@ -401,6 +572,7 @@
 		};
 		8B2CA2E81D6B566000FCDC7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E7B5F2948F151750DA0CD7 /* Pods-OraChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OraChat/Info.plist;
@@ -412,6 +584,7 @@
 		};
 		8B2CA2E91D6B566000FCDC7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0308049C50FF81ABF3738A9C /* Pods-OraChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OraChat/Info.plist;
@@ -423,6 +596,7 @@
 		};
 		8B2CA2EB1D6B566000FCDC7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B53CE5C3A4ED01161E162A3 /* Pods-OraChatTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OraChatTests/Info.plist;
@@ -435,6 +609,7 @@
 		};
 		8B2CA2EC1D6B566000FCDC7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46F8FAF7E7C37C827A00111F /* Pods-OraChatTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OraChatTests/Info.plist;
@@ -447,6 +622,7 @@
 		};
 		8B2CA2EE1D6B566000FCDC7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE7255C34D280CBE012BEE2D /* Pods-OraChatUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = OraChatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -458,6 +634,7 @@
 		};
 		8B2CA2EF1D6B566000FCDC7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A271B86CA115797220E0559 /* Pods-OraChatUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = OraChatUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -486,6 +663,7 @@
 				8B2CA2E91D6B566000FCDC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B2CA2EA1D6B566000FCDC7B /* Build configuration list for PBXNativeTarget "OraChatTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +672,7 @@
 				8B2CA2EC1D6B566000FCDC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B2CA2ED1D6B566000FCDC7B /* Build configuration list for PBXNativeTarget "OraChatUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +681,7 @@
 				8B2CA2EF1D6B566000FCDC7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
