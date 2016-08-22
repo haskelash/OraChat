@@ -64,15 +64,40 @@ class AccountFormViewController: UIViewController {
     //private methods
 
     private func register() {
+        if let name = nameField.text,
+            let email = emailRegistrationField.text,
+            let password = passwordRegistrationField.text,
+            let confirm = confirmField.text {
 
+            UserClient.register(params:[
+                "name": name,
+                "email": email,
+                "password":password,
+                "confirm":confirm
+                ], success: {self.goToTabBarVC()}
+            )
+        }
     }
 
     private func login() {
-
+        if let email = emailLoginField.text,
+            let password = passwordLoginField.text {
+            UserClient.login(params:[
+                "email": email,
+                "password":password
+                ], success: {self.goToTabBarVC()}
+            )
+        }
     }
 
     private func save() {
 
+    }
+
+    private func goToTabBarVC() {
+        let tabBarVC = UIApplication.sharedApplication().delegate?.window??.rootViewController?
+            .storyboard?.instantiateViewControllerWithIdentifier("RootTabBarViewController")
+        UIApplication.sharedApplication().delegate?.window??.rootViewController = tabBarVC
     }
 
     private func reconcileFormState() {
