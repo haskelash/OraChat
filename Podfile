@@ -6,6 +6,7 @@ target 'OraChat' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'SwiftKeychain'
 
   # Pods for OraChat
 
