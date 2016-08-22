@@ -16,7 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+//        if loggedIn() {
+            let registrationVC = self.window?.rootViewController?.storyboard?
+                .instantiateViewControllerWithIdentifier("AccountFormViewController") as? AccountFormViewController
+            self.window?.rootViewController = registrationVC
+
+            registrationVC?.setUpForRegistration()
+//        }
+
         return true
     }
 
