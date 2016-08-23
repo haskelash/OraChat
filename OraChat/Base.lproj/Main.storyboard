@@ -245,7 +245,7 @@
                                             <outlet property="lastMessageLabel" destination="lkF-Ez-qfS" id="5PK-aV-0nP"/>
                                             <outlet property="nameAuthorLabel" destination="Ghb-El-kQc" id="1zg-vf-blO"/>
                                             <outlet property="participantTimeAgoLabel" destination="8MR-e5-b8M" id="c7f-Re-eqy"/>
-                                            <segue destination="3Ue-tn-l2Q" kind="show" id="2UO-ys-IaB"/>
+                                            <segue destination="3Ue-tn-l2Q" kind="show" identifier="GoToChatSegue" id="2UO-ys-IaB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

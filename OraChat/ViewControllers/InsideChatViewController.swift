@@ -11,6 +11,7 @@ import UIKit
 class InsideChatViewController: UIViewController, UITableViewDataSource {
 
     let identifier = "MessageCell"
+    var chatID: Int?
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

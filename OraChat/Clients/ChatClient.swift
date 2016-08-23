@@ -30,13 +30,15 @@ class ChatClient {
         if let data = json["data"] as? [AnyObject] {
             let chats = data.map({(chatData: AnyObject) -> Chat? in
 
-                if let name = chatData["name"] as? String,
+                if let chatID = chatData["id"] as? Int,
+                    let name = chatData["name"] as? String,
                     let author = chatData["user"]??["name"] as? String,
                     let participant = chatData["last_message"]??["user"]??["name"] as? String,
                     let creationString = chatData["created"] as? String,
                     let lastMessage = chatData["last_message"]??["message"] as? String {
 
-                    return Chat(name: name,
+                    return Chat(chatID: chatID,
+                        name: name,
                         author: author,
                         participant: participant,
                         creationString: creationString,

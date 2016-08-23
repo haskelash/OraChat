@@ -10,13 +10,17 @@ import Foundation
 
 class Chat {
 
+    var chatID: Int
     var name: String
     var author: String
     var participant: String
     var creationDate: NSDate?
     var lastMessage: String
 
-    init(name: String, author: String, participant: String, creationString: String, lastMessage: String) {
+    init(chatID: Int, name: String, author: String,
+         participant: String, creationString: String, lastMessage: String) {
+
+        self.chatID = chatID
         self.name = name
         self.author = author
         self.participant = participant
