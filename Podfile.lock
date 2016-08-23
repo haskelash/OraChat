@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (3.4.1)
+  - SnapKit (0.21.1)
   - SwiftKeychain (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - SnapKit
   - SwiftKeychain
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
   SwiftKeychain: fd9ad69f7b3ff7a0c7ba579da508bbaa89a395b2
 
-PODFILE CHECKSUM: c51db4d6b82845db1824b08857e312de9384577b
+PODFILE CHECKSUM: 8ee4807eee8ce9969349ff049d1cc4324b92ae26
 
 COCOAPODS: 1.0.1
