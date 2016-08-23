@@ -10,8 +10,21 @@ import UIKit
 
 class InsideChatViewController: UIViewController, UITableViewDataSource {
 
-    let identifier = "MessageCell"
     var chatID: Int?
+
+    @IBOutlet private var tableView: UITableView!
+
+    private let identifier = "MessageCell"
+    private var model = [Message]()
+
+    override func viewDidLoad() {
+        if let id = chatID {
+            MessageClient.getList(chatID: id, success: { messages in
+                self.model = messages
+                self.tableView.reloadData()
+            })
+        }
+    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

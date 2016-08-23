@@ -320,6 +320,9 @@
                             <constraint firstItem="pOC-J8-sM0" firstAttribute="top" secondItem="dVh-Ui-PJS" secondAttribute="bottom" id="ha6-S0-3Gr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="pOC-J8-sM0" id="fmb-sn-C8T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohw-8I-OEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
