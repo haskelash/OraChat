@@ -274,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="1038" y="-23"/>
         </scene>
-        <!--View Controller-->
+        <!--Inside Chat View Controller-->
         <scene sceneID="pdS-DX-k8G">
             <objects>
-                <viewController id="3Ue-tn-l2Q" sceneMemberID="viewController">
+                <viewController id="3Ue-tn-l2Q" customClass="InsideChatViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dVh-Ui-PJS"/>
                         <viewControllerLayoutGuide type="bottom" id="9TG-9U-nXH"/>
@@ -285,7 +285,40 @@
                     <view key="view" contentMode="scaleToFill" id="pU6-qS-fm5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pOC-J8-sM0">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="LHJ-ub-NHt" customClass="MessageCell" customModule="OraChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LHJ-ub-NHt" id="KXX-MG-OIX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fb5-gz-Ugv">
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3Ue-tn-l2Q" id="gW1-zu-GBH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pOC-J8-sM0" secondAttribute="trailing" constant="-20" id="2SO-86-EC7"/>
+                            <constraint firstItem="pOC-J8-sM0" firstAttribute="leading" secondItem="pU6-qS-fm5" secondAttribute="leadingMargin" constant="-20" id="4St-fD-UFP"/>
+                            <constraint firstItem="9TG-9U-nXH" firstAttribute="top" secondItem="pOC-J8-sM0" secondAttribute="bottom" id="QGc-fl-bQT"/>
+                            <constraint firstItem="pOC-J8-sM0" firstAttribute="top" secondItem="dVh-Ui-PJS" secondAttribute="bottom" id="ha6-S0-3Gr"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohw-8I-OEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
