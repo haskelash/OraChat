@@ -241,6 +241,11 @@
                                                 <constraint firstItem="lkF-Ez-qfS" firstAttribute="top" secondItem="8MR-e5-b8M" secondAttribute="bottom" constant="4" id="mwe-DA-vYQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lastMessageLabel" destination="lkF-Ez-qfS" id="5PK-aV-0nP"/>
+                                            <outlet property="nameAuthorLabel" destination="Ghb-El-kQc" id="1zg-vf-blO"/>
+                                            <outlet property="participantTimeAgoLabel" destination="8MR-e5-b8M" id="c7f-Re-eqy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -260,6 +265,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="sAq-Rr-zeU"/>
+                    <connections>
+                        <outlet property="tableView" destination="Tan-4d-zt8" id="d04-jF-wLt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7O-EI-hM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

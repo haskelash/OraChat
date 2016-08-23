@@ -10,4 +10,13 @@ import UIKit
 
 class ChatCell: UITableViewCell {
 
+    @IBOutlet private var nameAuthorLabel: UILabel!
+    @IBOutlet private var participantTimeAgoLabel: UILabel!
+    @IBOutlet private var lastMessageLabel: UILabel!
+
+    func inject(chat chat: Chat) {
+        nameAuthorLabel.text = "\(chat.name) by \(chat.author)"
+        participantTimeAgoLabel.text = "\(chat.participant) - \(chat.creationDate)"
+        lastMessageLabel.text = chat.lastMessage
+    }
 }

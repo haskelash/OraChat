@@ -10,8 +10,17 @@ import UIKit
 
 class ChatsListViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet private var tableView: UITableView!
+
     private var model = [Chat]()
     private var cellIdentifier = "ChatCell"
+
+    override func viewDidLoad() {
+        ChatClient.getList(success: { chats in
+            self.model = chats
+            self.tableView.reloadData()
+        })
+    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -22,6 +31,10 @@ class ChatsListViewController: UIViewController, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChatCell
+
+        cell.inject(chat: model[indexPath.row])
+
+        return cell
     }
 }
