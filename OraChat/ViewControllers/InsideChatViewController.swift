@@ -8,13 +8,13 @@
 
 import UIKit
 
-class InsideChatViewController: UIViewController, UITableViewDataSource {
+class InsideChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var chatID: Int?
 
     @IBOutlet private var tableView: UITableView!
 
-    private let identifier = "MessageCell"
+    private let cellIdentifier = "MessageCell"
     private var model = [Message]()
 
     override func viewDidLoad() {
@@ -31,10 +31,24 @@ class InsideChatViewController: UIViewController, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return self.model.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MessageCell
+
+        cell.inject(message: model[indexPath.row])
+
+        return cell
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let boundingBox = model[indexPath.row].text.boundingRectWithSize(
+            CGSizeMake(MessageCell.messageWidth, CGFloat.max),
+            options: [.UsesLineFragmentOrigin, .UsesFontLeading],
+            attributes: [NSFontAttributeName: UIFont.systemFontOfSize(MessageCell.fontSize)],
+            context: nil)
+
+        return ceil(boundingBox.height)
     }
 }
