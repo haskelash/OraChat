@@ -16,17 +16,30 @@ class MessageCell: UITableViewCell {
 
     static let currentUserId: Int = {return fetchTokenAndIdFromKeychain().id! ?? -1}()
 
-    private var messageLabel = BubbleLabel()
+    private let containerView = UIView()
+    private let messageLabel = BubbleLabel()
+    private var leftConstraint: Constraint?
+    private var rightConstraint: Constraint?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        self.addSubview(messageLabel)
-        messageLabel.snp_makeConstraints{ make in
+        self.addSubview(containerView)
+        containerView.snp_makeConstraints{ make in
             make.top.equalTo(self).offset(MessageCell.verticalSpacing)
             make.bottom.equalTo(self).offset(-MessageCell.verticalSpacing)
-            make.left.equalTo(self).offset(0)
+            leftConstraint = make.left.equalTo(self).offset(0).constraint
+            rightConstraint = make.right.equalTo(self).offset(0).constraint
             make.width.equalTo(MessageCell.messageWidth)
+        }
+        rightConstraint?.uninstall()
+
+        self.addSubview(messageLabel)
+        messageLabel.snp_makeConstraints{ make in
+            make.top.equalTo(containerView)
+            make.bottom.equalTo(containerView)
+            make.left.equalTo(containerView)
+            make.right.equalTo(containerView)
         }
         messageLabel.font = UIFont.systemFontOfSize(MessageCell.fontSize)
         messageLabel.backgroundColor = UIColor.orangeColor()
@@ -35,6 +48,14 @@ class MessageCell: UITableViewCell {
 
     func inject(message message: Message) {
         messageLabel.text = message.text
-        messageLabel.side = (message.userID == MessageCell.currentUserId) ? .Right : .Left
+        if message.userID == MessageCell.currentUserId {
+            messageLabel.side = .Right
+            leftConstraint?.uninstall()
+            rightConstraint?.install()
+        } else {
+            messageLabel.side = .Left
+            leftConstraint?.install()
+            rightConstraint?.uninstall()
+        }
     }
 }
