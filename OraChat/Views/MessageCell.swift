@@ -10,18 +10,19 @@ import SnapKit
 
 class MessageCell: UITableViewCell {
 
-    static let messageWidth:CGFloat = 226.0
+    static let messageWidth: CGFloat = 226.0
+    static let verticalSpacing: CGFloat = 10.0
     static let fontSize: CGFloat = 15.0
 
-    private var messageLabel = UILabel()
+    private var messageLabel = BubbleLabel()
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.addSubview(messageLabel)
         messageLabel.snp_makeConstraints{ make in
-            make.top.equalTo(self).offset(0)
-            make.bottom.equalTo(self).offset(0)
+            make.top.equalTo(self).offset(MessageCell.verticalSpacing)
+            make.bottom.equalTo(self).offset(-MessageCell.verticalSpacing)
             make.left.equalTo(self).offset(0)
             make.width.equalTo(MessageCell.messageWidth)
         }
