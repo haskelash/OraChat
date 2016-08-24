@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        if let _ = fetchTokenFromKeychain() {} else {
+        let tokenAndId = fetchTokenAndIdFromKeychain()
+        if let _ = tokenAndId.token, let _ = tokenAndId.id {} else {
             let registrationVC = self.window?.rootViewController?.storyboard?
                 .instantiateViewControllerWithIdentifier("AccountFormViewController") as? AccountFormViewController
             self.window?.rootViewController = registrationVC
