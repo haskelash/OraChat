@@ -49,6 +49,6 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
             attributes: [NSFontAttributeName: UIFont.systemFontOfSize(MessageCell.fontSize)],
             context: nil)
 
-        return ceil(boundingBox.height) + MessageCell.verticalSpacing*2
+        return ceil(boundingBox.height) + MessageCell.extraLabelHeight + MessageCell.verticalSpacing*2
     }
 }

@@ -12,6 +12,7 @@ class MessageCell: UITableViewCell {
 
     static let messageWidth: CGFloat = 226.0
     static let verticalSpacing: CGFloat = 10.0
+    static let extraLabelHeight: CGFloat = 32.0
     static let fontSize: CGFloat = 15.0
 
     static let currentUserId: Int = {return fetchTokenAndIdFromKeychain().id! ?? -1}()
@@ -28,8 +29,8 @@ class MessageCell: UITableViewCell {
         containerView.snp_makeConstraints{ make in
             make.top.equalTo(self).offset(MessageCell.verticalSpacing)
             make.bottom.equalTo(self).offset(-MessageCell.verticalSpacing)
-            leftConstraint = make.left.equalTo(self).offset(0).constraint
-            rightConstraint = make.right.equalTo(self).offset(0).constraint
+            leftConstraint = make.left.equalTo(self).offset(20).constraint
+            rightConstraint = make.right.equalTo(self).offset(-20).constraint
             make.width.equalTo(MessageCell.messageWidth)
         }
         rightConstraint?.uninstall()
@@ -42,7 +43,7 @@ class MessageCell: UITableViewCell {
             make.right.equalTo(containerView)
         }
         messageLabel.font = UIFont.systemFontOfSize(MessageCell.fontSize)
-        messageLabel.backgroundColor = UIColor.orangeColor()
+        messageLabel.backgroundColor = UIColor(red: 0.906, green: 0.906, blue: 0.922, alpha: 1.00)
         messageLabel.numberOfLines = 0
     }
 
