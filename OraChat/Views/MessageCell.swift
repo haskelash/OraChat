@@ -12,7 +12,7 @@ class MessageCell: UITableViewCell {
 
     static let messageWidth: CGFloat = 226.0
     static let verticalSpacing: CGFloat = 10.0
-    static let extraLabelHeight: CGFloat = 32.0
+    static let extraLabelHeight: CGFloat = BubbleLabel.insets.top + BubbleLabel.insets.bottom + 2
     static let fontSize: CGFloat = 15.0
 
     static let currentUserId: Int = {return fetchTokenAndIdFromKeychain().id! ?? -1}()

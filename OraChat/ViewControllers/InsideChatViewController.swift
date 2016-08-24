@@ -44,7 +44,7 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let boundingBox = model[indexPath.row].text.boundingRectWithSize(
-            CGSizeMake(MessageCell.messageWidth, CGFloat.max),
+            CGSizeMake(MessageCell.messageWidth-(BubbleLabel.insets.left+BubbleLabel.insets.right), CGFloat.max),
             options: [.UsesLineFragmentOrigin, .UsesFontLeading],
             attributes: [NSFontAttributeName: UIFont.systemFontOfSize(MessageCell.fontSize)],
             context: nil)

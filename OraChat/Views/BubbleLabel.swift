@@ -23,6 +23,8 @@ class BubbleLabel: UILabel {
         }
     }
 
+    static var insets = UIEdgeInsets(top: 17, left: 19, bottom: 19, right: 15)
+
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
 
@@ -63,5 +65,9 @@ class BubbleLabel: UILabel {
         maskLayer.frame = self.bounds
         maskLayer.path = path.CGPath
         self.layer.mask = maskLayer
+    }
+
+    override func drawTextInRect(rect: CGRect) {
+        super.drawTextInRect(UIEdgeInsetsInsetRect(rect, BubbleLabel.insets))
     }
 }
