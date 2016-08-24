@@ -304,6 +304,14 @@
                                     <outlet property="delegate" destination="3Ue-tn-l2Q" id="0w6-Aa-PnM"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbO-Rl-MQD">
+                                <rect key="frame" x="528" y="479" width="72" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="JNz-Mb-Gvc"/>
+                                    <constraint firstAttribute="width" constant="72" id="au9-H4-G6J"/>
+                                </constraints>
+                                <state key="normal" image="Plus"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -311,6 +319,8 @@
                             <constraint firstItem="pOC-J8-sM0" firstAttribute="leading" secondItem="pU6-qS-fm5" secondAttribute="leadingMargin" constant="-20" id="4St-fD-UFP"/>
                             <constraint firstItem="9TG-9U-nXH" firstAttribute="top" secondItem="pOC-J8-sM0" secondAttribute="bottom" id="QGc-fl-bQT"/>
                             <constraint firstItem="pOC-J8-sM0" firstAttribute="top" secondItem="dVh-Ui-PJS" secondAttribute="bottom" id="ha6-S0-3Gr"/>
+                            <constraint firstItem="fbO-Rl-MQD" firstAttribute="trailing" secondItem="pU6-qS-fm5" secondAttribute="trailingMargin" constant="20" id="vov-I4-tEW"/>
+                            <constraint firstItem="9TG-9U-nXH" firstAttribute="top" secondItem="fbO-Rl-MQD" secondAttribute="bottom" id="xX7-Dk-00q"/>
                         </constraints>
                     </view>
                     <connections>
@@ -340,4 +350,7 @@
             <point key="canvasLocation" x="-536" y="355"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Plus" width="42" height="42"/>
+    </resources>
 </document>

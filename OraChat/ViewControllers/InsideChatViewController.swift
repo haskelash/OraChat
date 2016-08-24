@@ -16,6 +16,7 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
 
     private let cellIdentifier = "MessageCell"
     private var model = [Message]()
+    private var plusButtonHeight: CGFloat = 72
 
     override func viewDidLoad() {
         if let id = chatID {
@@ -24,6 +25,8 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
                 self.tableView.reloadData()
             })
         }
+
+        tableView.contentInset.bottom = plusButtonHeight
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

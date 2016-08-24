@@ -82,8 +82,8 @@ class MessageCell: UITableViewCell {
             timeAgoLabel.textAlignment = .Right
         } else {
             messageLabel.side = .Left
-            leftConstraint?.install()
             rightConstraint?.uninstall()
+            leftConstraint?.install()
             timeAgoLabel.textAlignment = .Left
         }
     }
