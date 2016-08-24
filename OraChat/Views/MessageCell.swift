@@ -14,6 +14,8 @@ class MessageCell: UITableViewCell {
     static let verticalSpacing: CGFloat = 10.0
     static let fontSize: CGFloat = 15.0
 
+    static let currentUserId: Int = {return fetchTokenAndIdFromKeychain().id! ?? -1}()
+
     private var messageLabel = BubbleLabel()
 
     required init?(coder aDecoder: NSCoder) {
@@ -33,5 +35,6 @@ class MessageCell: UITableViewCell {
 
     func inject(message message: Message) {
         messageLabel.text = message.text
+        messageLabel.side = (message.userID == MessageCell.currentUserId) ? .Right : .Left
     }
 }

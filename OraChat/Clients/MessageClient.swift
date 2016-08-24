@@ -30,11 +30,13 @@ class MessageClient {
             let messages = data.map({(messageData: AnyObject) -> Message? in
 
                 if let messageID = messageData["id"] as? Int,
+                    let userID = messageData["user_id"] as? Int,
                     let text = messageData["message"] as? String,
                     let author = messageData["user"]??["name"] as? String,
                     let creationString = messageData["created"] as? String {
 
                     return Message(messageID: messageID,
+                        userID:  userID,
                         text: text,
                         author: author,
                         creationString: creationString)

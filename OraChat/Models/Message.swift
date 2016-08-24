@@ -11,12 +11,14 @@ import Foundation
 class Message {
 
     var messageID: Int
+    var userID: Int
     var text: String
     var author: String
     var creationDate: NSDate?
 
-    init(messageID: Int, text: String, author: String, creationString: String) {
+    init(messageID: Int, userID: Int, text: String, author: String, creationString: String) {
         self.messageID = messageID
+        self.userID = userID
         self.text = text
         self.author = author
 

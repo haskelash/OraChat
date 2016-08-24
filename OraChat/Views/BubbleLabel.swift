@@ -17,7 +17,9 @@ class BubbleLabel: UILabel {
     //this determines if the bubble point to the lower left or lower right (lower left by default)
     var side = Side.Left {
         didSet {
-            setNeedsDisplay()
+            if side != oldValue {
+                setNeedsDisplay()
+            }
         }
     }
 
