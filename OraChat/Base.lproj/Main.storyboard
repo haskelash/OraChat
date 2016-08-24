@@ -216,7 +216,7 @@
                                                         <constraint firstAttribute="height" constant="18" id="khX-n4-fct"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.94117647059999998" green="0.58431372550000005" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.96078431369999995" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkF-Ez-qfS">
@@ -225,7 +225,7 @@
                                                         <constraint firstAttribute="height" constant="18" id="aIY-QU-U8s"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -245,6 +245,7 @@
                                             <outlet property="lastMessageLabel" destination="lkF-Ez-qfS" id="5PK-aV-0nP"/>
                                             <outlet property="nameAuthorLabel" destination="Ghb-El-kQc" id="1zg-vf-blO"/>
                                             <outlet property="participantTimeAgoLabel" destination="8MR-e5-b8M" id="c7f-Re-eqy"/>
+                                            <segue destination="3Ue-tn-l2Q" kind="show" identifier="GoToChatSegue" id="2UO-ys-IaB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -272,6 +273,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7O-EI-hM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1038" y="-23"/>
+        </scene>
+        <!--Inside Chat View Controller-->
+        <scene sceneID="pdS-DX-k8G">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3Ue-tn-l2Q" customClass="InsideChatViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dVh-Ui-PJS"/>
+                        <viewControllerLayoutGuide type="bottom" id="9TG-9U-nXH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pU6-qS-fm5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pOC-J8-sM0">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="LHJ-ub-NHt" customClass="MessageCell" customModule="OraChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LHJ-ub-NHt" id="KXX-MG-OIX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="3Ue-tn-l2Q" id="gW1-zu-GBH"/>
+                                    <outlet property="delegate" destination="3Ue-tn-l2Q" id="0w6-Aa-PnM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pOC-J8-sM0" secondAttribute="trailing" constant="-20" id="2SO-86-EC7"/>
+                            <constraint firstItem="pOC-J8-sM0" firstAttribute="leading" secondItem="pU6-qS-fm5" secondAttribute="leadingMargin" constant="-20" id="4St-fD-UFP"/>
+                            <constraint firstItem="9TG-9U-nXH" firstAttribute="top" secondItem="pOC-J8-sM0" secondAttribute="bottom" id="QGc-fl-bQT"/>
+                            <constraint firstItem="pOC-J8-sM0" firstAttribute="top" secondItem="dVh-Ui-PJS" secondAttribute="bottom" id="ha6-S0-3Gr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pOC-J8-sM0" id="fmb-sn-C8T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohw-8I-OEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="-23"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="x1K-6c-cYk">

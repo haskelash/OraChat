@@ -10,6 +10,9 @@
 		7698C7FD5826E067EA2E7EBF /* Pods_OraChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95697A679B40A61E2BD3408D /* Pods_OraChatTests.framework */; };
 		7D96E2EB0B38DD538350914D /* Pods_OraChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5615E9F5450315F8B3BF3C /* Pods_OraChatUITests.framework */; };
 		81F27250DD1DCEA9DA9D4553 /* Pods_OraChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE1701612B5A1F3BAD1FDB /* Pods_OraChat.framework */; };
+		8B12B2561D6D03EE00BB682E /* MessageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12B2551D6D03EE00BB682E /* MessageClient.swift */; };
+		8B12B2581D6D041F00BB682E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12B2571D6D041F00BB682E /* Message.swift */; };
+		8B1868FF1D6D429600D2223C /* BubbleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1868FE1D6D429600D2223C /* BubbleLabel.swift */; };
 		8B2CA2C01D6B566000FCDC7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2CA2BF1D6B566000FCDC7B /* AppDelegate.swift */; };
 		8B2CA2C51D6B566000FCDC7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2CA2C31D6B566000FCDC7B /* Main.storyboard */; };
 		8B2CA2C81D6B566000FCDC7B /* OraChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B2CA2C61D6B566000FCDC7B /* OraChat.xcdatamodeld */; };
@@ -24,6 +27,8 @@
 		8B612CD61D6BB41D005B06FD /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B612CD51D6BB41D005B06FD /* Chat.swift */; };
 		8B612CD91D6BB886005B06FD /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B612CD81D6BB886005B06FD /* ChatCell.swift */; };
 		8B612CDB1D6BBC4C005B06FD /* ChatClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B612CDA1D6BBC4C005B06FD /* ChatClient.swift */; };
+		8BA123C81D6CBE4E0086C2B1 /* InsideChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA123C71D6CBE4E0086C2B1 /* InsideChatViewController.swift */; };
+		8BA123CA1D6CC1F20086C2B1 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA123C91D6CC1F20086C2B1 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,9 @@
 		46F8FAF7E7C37C827A00111F /* Pods-OraChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		57E7B5F2948F151750DA0CD7 /* Pods-OraChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChat/Pods-OraChat.debug.xcconfig"; sourceTree = "<group>"; };
 		76EE1701612B5A1F3BAD1FDB /* Pods_OraChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B12B2551D6D03EE00BB682E /* MessageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageClient.swift; path = Clients/MessageClient.swift; sourceTree = "<group>"; };
+		8B12B2571D6D041F00BB682E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
+		8B1868FE1D6D429600D2223C /* BubbleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BubbleLabel.swift; path = Views/BubbleLabel.swift; sourceTree = "<group>"; };
 		8B2CA2BC1D6B566000FCDC7B /* OraChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2CA2BF1D6B566000FCDC7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B2CA2C41D6B566000FCDC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +77,8 @@
 		8B612CD51D6BB41D005B06FD /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chat.swift; path = Models/Chat.swift; sourceTree = "<group>"; };
 		8B612CD81D6BB886005B06FD /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatCell.swift; path = Views/ChatCell.swift; sourceTree = "<group>"; };
 		8B612CDA1D6BBC4C005B06FD /* ChatClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatClient.swift; path = Clients/ChatClient.swift; sourceTree = "<group>"; };
+		8BA123C71D6CBE4E0086C2B1 /* InsideChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InsideChatViewController.swift; path = ViewControllers/InsideChatViewController.swift; sourceTree = "<group>"; };
+		8BA123C91D6CC1F20086C2B1 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = Views/MessageCell.swift; sourceTree = "<group>"; };
 		95697A679B40A61E2BD3408D /* Pods_OraChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B53CE5C3A4ED01161E162A3 /* Pods-OraChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE7255C34D280CBE012BEE2D /* Pods-OraChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatUITests/Pods-OraChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +186,7 @@
 			children = (
 				8B2CA2F41D6B791000FCDC7B /* AccountFormViewController.swift */,
 				8B612CD21D6BB183005B06FD /* ChatsListViewController.swift */,
+				8BA123C71D6CBE4E0086C2B1 /* InsideChatViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			children = (
 				8B2CA2F71D6B874200FCDC7B /* UserClient.swift */,
 				8B612CDA1D6BBC4C005B06FD /* ChatClient.swift */,
+				8B12B2551D6D03EE00BB682E /* MessageClient.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -201,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				8B612CD51D6BB41D005B06FD /* Chat.swift */,
+				8B12B2571D6D041F00BB682E /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -209,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				8B612CD81D6BB886005B06FD /* ChatCell.swift */,
+				8BA123C91D6CC1F20086C2B1 /* MessageCell.swift */,
+				8B1868FE1D6D429600D2223C /* BubbleLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -488,12 +503,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA123CA1D6CC1F20086C2B1 /* MessageCell.swift in Sources */,
 				8B612CD31D6BB183005B06FD /* ChatsListViewController.swift in Sources */,
 				8B612CD91D6BB886005B06FD /* ChatCell.swift in Sources */,
+				8BA123C81D6CBE4E0086C2B1 /* InsideChatViewController.swift in Sources */,
 				8B2CA2F51D6B791000FCDC7B /* AccountFormViewController.swift in Sources */,
 				8B612CDB1D6BBC4C005B06FD /* ChatClient.swift in Sources */,
+				8B12B2561D6D03EE00BB682E /* MessageClient.swift in Sources */,
 				8B612CD61D6BB41D005B06FD /* Chat.swift in Sources */,
 				8B2CA2F81D6B874200FCDC7B /* UserClient.swift in Sources */,
+				8B12B2581D6D041F00BB682E /* Message.swift in Sources */,
+				8B1868FF1D6D429600D2223C /* BubbleLabel.swift in Sources */,
 				8B2CA2C81D6B566000FCDC7B /* OraChat.xcdatamodeld in Sources */,
 				8B612CD11D6BA9C9005B06FD /* KeychainAccount.swift in Sources */,
 				8B2CA2C01D6B566000FCDC7B /* AppDelegate.swift in Sources */,

@@ -22,6 +22,16 @@ class ChatsListViewController: UIViewController, UITableViewDataSource {
         })
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "GoToChatSegue",
+            let insideChatVC = segue.destinationViewController as? InsideChatViewController,
+            let selectedPath = tableView.indexPathForSelectedRow {
+
+            insideChatVC.chatID = model[selectedPath.row].chatID
+            tableView.deselectRowAtIndexPath(selectedPath, animated: true)
+        }
+    }
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
