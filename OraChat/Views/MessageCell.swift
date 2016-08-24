@@ -7,6 +7,7 @@
 //
 
 import SnapKit
+import DateTools
 
 class MessageCell: UITableViewCell {
 
@@ -72,7 +73,7 @@ class MessageCell: UITableViewCell {
 
     func inject(message message: Message) {
         messageLabel.text = message.text
-        timeAgoLabel.text = "\(message.creationDate)"
+        timeAgoLabel.text = message.creationDate?.timeAgoSinceNow()
 
         if message.userID == MessageCell.currentUserId {
             messageLabel.side = .Right

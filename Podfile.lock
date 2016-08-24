@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (3.4.1)
+  - DateTools (1.7.0)
   - SnapKit (0.21.1)
   - SwiftKeychain (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - DateTools
   - SnapKit
   - SwiftKeychain
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
   SwiftKeychain: fd9ad69f7b3ff7a0c7ba579da508bbaa89a395b2
 
-PODFILE CHECKSUM: 8ee4807eee8ce9969349ff049d1cc4324b92ae26
+PODFILE CHECKSUM: 945e3b386695f23c0bbfcbdcaf9602f34def8efb
 
 COCOAPODS: 1.0.1

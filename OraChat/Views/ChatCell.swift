@@ -16,7 +16,10 @@ class ChatCell: UITableViewCell {
 
     func inject(chat chat: Chat) {
         nameAuthorLabel.text = "\(chat.name) by \(chat.author)"
-        participantTimeAgoLabel.text = "\(chat.participant) - \(chat.creationDate)"
+        participantTimeAgoLabel.text = chat.participant
+        if let timeAgo = chat.creationDate?.timeAgoSinceNow() {
+            participantTimeAgoLabel.text? += " - \(timeAgo)"
+        }
         lastMessageLabel.text = chat.lastMessage
     }
 }

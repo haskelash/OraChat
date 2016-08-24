@@ -8,6 +8,7 @@ target 'OraChat' do
   pod 'Alamofire'
   pod 'SwiftKeychain'
   pod 'SnapKit'
+  pod 'DateTools'
 
   # Pods for OraChat
 
