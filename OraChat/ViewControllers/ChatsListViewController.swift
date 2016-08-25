@@ -30,9 +30,17 @@ class ChatsListViewController: UIViewController, UITableViewDataSource {
             let insideChatVC = segue.destinationViewController as? InsideChatViewController,
             let selectedPath = tableView.indexPathForSelectedRow {
 
-            insideChatVC.chatID = model[selectedPath.row].chatID
+            let chat = model[selectedPath.row]
+            insideChatVC.chatID = chat.chatID
+            insideChatVC.chatName = chat.name
             tableView.deselectRowAtIndexPath(selectedPath, animated: true)
         }
+    }
+
+    func addChat(chat: Chat) {
+        model.append(chat)
+        let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
+        self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .None)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -18,7 +18,8 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
         chatNameField.becomeFirstResponder()
     }
 
-    @IBAction func cancelTapped(button: UIButton) {
+    @IBAction func cancelTapped(button: UIBarButtonItem) {
+        chatNameField.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -41,14 +42,16 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        chatNameField.resignFirstResponder()
 
         let name = chatNameField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         if name?.characters.count > 0 {
             if let newChatVC = self.storyboard?
                 .instantiateViewControllerWithIdentifier("InsideChatViewController") as? InsideChatViewController,
-            let tabBarVC = self.presentingViewController as? UITabBarController,
-            let navVC = tabBarVC.selectedViewController as? UINavigationController {
+                let tabBarVC = self.presentingViewController as? UITabBarController,
+                let navVC = tabBarVC.selectedViewController as? UINavigationController,
+                let chatListVC = navVC.topViewController as? ChatsListViewController {
+
+                newChatVC.chatList = chatListVC
                 newChatVC.chatName = name
                 navVC.pushViewController(newChatVC, animated: false)
             }

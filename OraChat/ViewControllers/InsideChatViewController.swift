@@ -12,6 +12,7 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
 
     var chatID: Int?
     var chatName: String?
+    weak var chatList: ChatsListViewController?
 
     @IBOutlet private var tableView: UITableView!
     private let dummyView = DummyView()
@@ -29,9 +30,13 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
             })
         }
 
+        self.navigationItem.title = chatName
         tableView.contentInset.bottom = plusButtonHeight
         dummyView.delegate = self
         view.addSubview(dummyView)
+        if chatID == nil {
+            dummyView.becomeFirstResponder()
+        }
     }
 
     @IBAction func plusButtonTapped(button: UIButton) {
@@ -50,6 +55,10 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
         } else if let name = chatName{ //we also need to create a new chat
             ChatClient.createChat(name: name, success: {chat in
                 MessageClient.createMessage(chatID: chat.chatID, message: text, success: { messageObject in
+                    chat.participant = messageObject.author
+                    chat.lastMessage = messageObject.text
+                    self.chatList?.addChat(chat)
+
                     self.model.append(messageObject)
                     let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
                     self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .Right)
