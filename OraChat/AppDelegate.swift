@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        let orange = UIColor(
+            red: 0.961, green: 0.651, blue: 0.137, alpha: 1.00)
+        UINavigationBar.appearance().tintColor = orange
+        UITabBar.appearance().tintColor = orange
+
         let tokenAndId = fetchTokenAndIdFromKeychain()
         if let _ = tokenAndId.token, let _ = tokenAndId.id {} else {
             let registrationVC = self.window?.rootViewController?.storyboard?
