@@ -10,6 +10,9 @@
 		7698C7FD5826E067EA2E7EBF /* Pods_OraChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95697A679B40A61E2BD3408D /* Pods_OraChatTests.framework */; };
 		7D96E2EB0B38DD538350914D /* Pods_OraChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5615E9F5450315F8B3BF3C /* Pods_OraChatUITests.framework */; };
 		81F27250DD1DCEA9DA9D4553 /* Pods_OraChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76EE1701612B5A1F3BAD1FDB /* Pods_OraChat.framework */; };
+		8B03A5491D6EA6C10058C4D8 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B03A5481D6EA6C10058C4D8 /* DummyView.swift */; };
+		8B0FB53F1D6E623700CB0570 /* NewMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FB53E1D6E623700CB0570 /* NewMessageView.xib */; };
+		8B0FB5411D6E63A100CB0570 /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB5401D6E63A100CB0570 /* NewMessageView.swift */; };
 		8B12B2561D6D03EE00BB682E /* MessageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12B2551D6D03EE00BB682E /* MessageClient.swift */; };
 		8B12B2581D6D041F00BB682E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12B2571D6D041F00BB682E /* Message.swift */; };
 		8B1868FF1D6D429600D2223C /* BubbleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1868FE1D6D429600D2223C /* BubbleLabel.swift */; };
@@ -54,6 +57,9 @@
 		46F8FAF7E7C37C827A00111F /* Pods-OraChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests.release.xcconfig"; sourceTree = "<group>"; };
 		57E7B5F2948F151750DA0CD7 /* Pods-OraChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChat/Pods-OraChat.debug.xcconfig"; sourceTree = "<group>"; };
 		76EE1701612B5A1F3BAD1FDB /* Pods_OraChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B03A5481D6EA6C10058C4D8 /* DummyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DummyView.swift; path = Views/DummyView.swift; sourceTree = "<group>"; };
+		8B0FB53E1D6E623700CB0570 /* NewMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewMessageView.xib; path = Xibs/NewMessageView.xib; sourceTree = "<group>"; };
+		8B0FB5401D6E63A100CB0570 /* NewMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewMessageView.swift; path = Views/NewMessageView.swift; sourceTree = "<group>"; };
 		8B12B2551D6D03EE00BB682E /* MessageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageClient.swift; path = Clients/MessageClient.swift; sourceTree = "<group>"; };
 		8B12B2571D6D041F00BB682E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
 		8B1868FE1D6D429600D2223C /* BubbleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BubbleLabel.swift; path = Views/BubbleLabel.swift; sourceTree = "<group>"; };
@@ -123,6 +129,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8B0FB53D1D6E620200CB0570 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				8B0FB53E1D6E623700CB0570 /* NewMessageView.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
 		8B2CA2B31D6B566000FCDC7B = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +165,7 @@
 				8B612CD41D6BB3E0005B06FD /* Models */,
 				8B612CD71D6BB869005B06FD /* Views */,
 				8B2CA2F31D6B78FA00FCDC7B /* ViewControllers */,
+				8B0FB53D1D6E620200CB0570 /* Xibs */,
 				8B2CA2F61D6B86F600FCDC7B /* Clients */,
 				8B612CCF1D6BA9B7005B06FD /* Helpers */,
 				8B2CA2BF1D6B566000FCDC7B /* AppDelegate.swift */,
@@ -224,6 +239,8 @@
 				8B612CD81D6BB886005B06FD /* ChatCell.swift */,
 				8BA123C91D6CC1F20086C2B1 /* MessageCell.swift */,
 				8B1868FE1D6D429600D2223C /* BubbleLabel.swift */,
+				8B03A5481D6EA6C10058C4D8 /* DummyView.swift */,
+				8B0FB5401D6E63A100CB0570 /* NewMessageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -355,6 +372,7 @@
 			files = (
 				8B2CA2CD1D6B566000FCDC7B /* LaunchScreen.storyboard in Resources */,
 				8B2CA2CA1D6B566000FCDC7B /* Assets.xcassets in Resources */,
+				8B0FB53F1D6E623700CB0570 /* NewMessageView.xib in Resources */,
 				8B2CA2C51D6B566000FCDC7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA123CA1D6CC1F20086C2B1 /* MessageCell.swift in Sources */,
+				8B03A5491D6EA6C10058C4D8 /* DummyView.swift in Sources */,
 				8B612CD31D6BB183005B06FD /* ChatsListViewController.swift in Sources */,
 				8B612CD91D6BB886005B06FD /* ChatCell.swift in Sources */,
 				8BA123C81D6CBE4E0086C2B1 /* InsideChatViewController.swift in Sources */,
@@ -517,6 +536,7 @@
 				8B2CA2C81D6B566000FCDC7B /* OraChat.xcdatamodeld in Sources */,
 				8B612CD11D6BA9C9005B06FD /* KeychainAccount.swift in Sources */,
 				8B2CA2C01D6B566000FCDC7B /* AppDelegate.swift in Sources */,
+				8B0FB5411D6E63A100CB0570 /* NewMessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

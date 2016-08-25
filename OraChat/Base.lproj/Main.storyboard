@@ -311,6 +311,9 @@
                                     <constraint firstAttribute="width" constant="72" id="au9-H4-G6J"/>
                                 </constraints>
                                 <state key="normal" image="Plus"/>
+                                <connections>
+                                    <action selector="plusButtonTapped:" destination="3Ue-tn-l2Q" eventType="touchUpInside" id="s0m-tt-Urt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

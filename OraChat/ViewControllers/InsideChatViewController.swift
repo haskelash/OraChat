@@ -13,10 +13,12 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
     var chatID: Int?
 
     @IBOutlet private var tableView: UITableView!
+    private let dummyView = DummyView()
 
     private let cellIdentifier = "MessageCell"
     private var model = [Message]()
     private var plusButtonHeight: CGFloat = 72
+
 
     override func viewDidLoad() {
         if let id = chatID {
@@ -27,6 +29,11 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
         }
 
         tableView.contentInset.bottom = plusButtonHeight
+        view.addSubview(dummyView)
+    }
+
+    @IBAction func plusButtonTapped(button: UIButton) {
+        dummyView.becomeFirstResponder()
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
