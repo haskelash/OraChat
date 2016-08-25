@@ -11,6 +11,7 @@ import UIKit
 class InsideChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     var chatID: Int?
+    var chatName: String?
 
     @IBOutlet private var tableView: UITableView!
     private let dummyView = DummyView()
@@ -38,11 +39,21 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if let chatID = chatID, text = textField.text {
+        guard let text = textField.text else { return true }
+
+        if let chatID = chatID { //existing chat
             MessageClient.createMessage(chatID: chatID, message: text, success: { messageObject in
                 self.model.append(messageObject)
                 let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
                 self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .Right)
+            })
+        } else if let name = chatName{ //we also need to create a new chat
+            ChatClient.createChat(name: name, success: {chat in
+                MessageClient.createMessage(chatID: chat.chatID, message: text, success: { messageObject in
+                    self.model.append(messageObject)
+                    let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
+                    self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .Right)
+                })
             })
         }
         textField.text = nil

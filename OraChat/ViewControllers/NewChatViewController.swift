@@ -45,9 +45,11 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
 
         let name = chatNameField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         if name?.characters.count > 0 {
-            if let newChatVC = self.storyboard?.instantiateViewControllerWithIdentifier("InsideChatViewController"),
+            if let newChatVC = self.storyboard?
+                .instantiateViewControllerWithIdentifier("InsideChatViewController") as? InsideChatViewController,
             let tabBarVC = self.presentingViewController as? UITabBarController,
             let navVC = tabBarVC.selectedViewController as? UINavigationController {
+                newChatVC.chatName = name
                 navVC.pushViewController(newChatVC, animated: false)
             }
             dismissViewControllerAnimated(true, completion: nil)
