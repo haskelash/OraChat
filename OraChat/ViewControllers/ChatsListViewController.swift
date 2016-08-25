@@ -35,6 +35,12 @@ class ChatsListViewController: UIViewController, UITableViewDataSource {
         }
     }
 
+    func addChat(chat: Chat) {
+        model.append(chat)
+        let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
+        self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .None)
+    }
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

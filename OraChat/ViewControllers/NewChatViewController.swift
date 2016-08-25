@@ -47,8 +47,11 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
         if name?.characters.count > 0 {
             if let newChatVC = self.storyboard?
                 .instantiateViewControllerWithIdentifier("InsideChatViewController") as? InsideChatViewController,
-            let tabBarVC = self.presentingViewController as? UITabBarController,
-            let navVC = tabBarVC.selectedViewController as? UINavigationController {
+                let tabBarVC = self.presentingViewController as? UITabBarController,
+                let navVC = tabBarVC.selectedViewController as? UINavigationController,
+                let chatListVC = navVC.topViewController as? ChatsListViewController {
+
+                newChatVC.chatList = chatListVC
                 newChatVC.chatName = name
                 navVC.pushViewController(newChatVC, animated: false)
             }

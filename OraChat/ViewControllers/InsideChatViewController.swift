@@ -12,6 +12,7 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
 
     var chatID: Int?
     var chatName: String?
+    weak var chatList: ChatsListViewController?
 
     @IBOutlet private var tableView: UITableView!
     private let dummyView = DummyView()
@@ -49,6 +50,8 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
             })
         } else if let name = chatName{ //we also need to create a new chat
             ChatClient.createChat(name: name, success: {chat in
+                self.chatList?.addChat(chat)
+
                 MessageClient.createMessage(chatID: chat.chatID, message: text, success: { messageObject in
                     self.model.append(messageObject)
                     let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
