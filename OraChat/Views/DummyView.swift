@@ -11,8 +11,9 @@ import UIKit
 //this class acts as a dumb UIView
 //when this class is assigned first responder status, it passes it on to it's accessory view's text field
 
-class DummyView: UIView {
+class DummyView: UIView, UITextFieldDelegate {
 
+    var delegate: UITextFieldDelegate?
     private var accessoryView: UIView?
     @IBOutlet private var accessoryTextField: UITextField?
     override var inputAccessoryView: UIView {
@@ -38,5 +39,17 @@ class DummyView: UIView {
     @IBAction func cancelTapped(button: UIButton) {
         accessoryTextField?.resignFirstResponder()
         self.resignFirstResponder()
+        accessoryTextField?.text = nil
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        accessoryTextField?.resignFirstResponder()
+        self.resignFirstResponder()
+
+        if delegate?.respondsToSelector(#selector(textFieldShouldReturn(_:))) == true {
+            return delegate?.textFieldShouldReturn!(textField) ?? true
+        } else {
+            return true
+        }
     }
 }

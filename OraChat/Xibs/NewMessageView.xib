@@ -27,33 +27,24 @@
                         <action selector="cancelTapped:" destination="-1" eventType="touchUpInside" id="WIm-Wx-xXG"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nm6-pE-qsY">
-                    <rect key="frame" x="244" y="0.0" width="48" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="48" id="4OY-gh-w9g"/>
-                    </constraints>
-                    <state key="normal" title="Send">
-                        <color key="titleColor" red="0.96078431369999995" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYN-11-VIE">
-                    <rect key="frame" x="64" y="5" width="172" height="30"/>
+                    <rect key="frame" x="64" y="5" width="228" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="qfy-TL-loT"/>
+                    </connections>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.95518595045641019" green="0.95518595045641019" blue="0.95518595045641019" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="UJK-VA-2Y2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4vz-EX-KyD"/>
-                <constraint firstAttribute="trailing" secondItem="nm6-pE-qsY" secondAttribute="trailing" constant="8" id="6H6-8w-sJh"/>
                 <constraint firstItem="uYN-11-VIE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="7L1-zq-mm7"/>
                 <constraint firstItem="UJK-VA-2Y2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="QbG-7m-lxY"/>
-                <constraint firstItem="nm6-pE-qsY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UXf-R5-a66"/>
                 <constraint firstAttribute="bottom" secondItem="UJK-VA-2Y2" secondAttribute="bottom" id="WXG-in-1Op"/>
-                <constraint firstItem="nm6-pE-qsY" firstAttribute="leading" secondItem="uYN-11-VIE" secondAttribute="trailing" constant="8" id="aYH-me-cBd"/>
                 <constraint firstItem="uYN-11-VIE" firstAttribute="leading" secondItem="UJK-VA-2Y2" secondAttribute="trailing" constant="8" id="fQE-4K-1oR"/>
                 <constraint firstAttribute="bottom" secondItem="uYN-11-VIE" secondAttribute="bottom" constant="5" id="gOC-Gu-dD5"/>
-                <constraint firstAttribute="bottom" secondItem="nm6-pE-qsY" secondAttribute="bottom" id="t7i-Hw-kvH"/>
+                <constraint firstAttribute="trailing" secondItem="uYN-11-VIE" secondAttribute="trailing" constant="8" id="tPP-hu-4hD"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

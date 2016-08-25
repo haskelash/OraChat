@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InsideChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class InsideChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     var chatID: Int?
 
@@ -29,11 +29,18 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
         }
 
         tableView.contentInset.bottom = plusButtonHeight
+        dummyView.delegate = self
         view.addSubview(dummyView)
     }
 
     @IBAction func plusButtonTapped(button: UIButton) {
         dummyView.becomeFirstResponder()
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        print(textField.text)
+        textField.text = nil
+        return true
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
