@@ -284,6 +284,9 @@
                                     <constraint firstAttribute="height" constant="44" id="l7J-tg-vC3"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="92o-Xq-8fU" id="iiQ-MS-awd"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tan-4d-zt8">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>

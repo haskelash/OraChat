@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatsListViewController: UIViewController, UITableViewDataSource {
+class ChatsListViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet private var tableView: UITableView!
 
