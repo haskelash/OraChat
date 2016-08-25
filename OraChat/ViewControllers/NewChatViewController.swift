@@ -14,6 +14,10 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
 
     private let cellIdentifier = "ContactCell"
 
+    override func viewDidLoad() {
+        chatNameField.becomeFirstResponder()
+    }
+
     @IBAction func cancelTapped(button: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -37,10 +41,16 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        chatNameField.resignFirstResponder()
 
         let name = chatNameField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         if name?.characters.count > 0 {
-
+            if let newChatVC = self.storyboard?.instantiateViewControllerWithIdentifier("InsideChatViewController"),
+            let tabBarVC = self.presentingViewController as? UITabBarController,
+            let navVC = tabBarVC.selectedViewController as? UINavigationController {
+                navVC.pushViewController(newChatVC, animated: false)
+            }
+            dismissViewControllerAnimated(true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Enter a chat name first", message: nil, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))

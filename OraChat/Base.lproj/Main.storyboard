@@ -395,7 +395,7 @@
         <!--Inside Chat View Controller-->
         <scene sceneID="pdS-DX-k8G">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3Ue-tn-l2Q" customClass="InsideChatViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InsideChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="3Ue-tn-l2Q" customClass="InsideChatViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dVh-Ui-PJS"/>
                         <viewControllerLayoutGuide type="bottom" id="9TG-9U-nXH"/>
