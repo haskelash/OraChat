@@ -166,21 +166,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3L-9J-4SZ">
-                                <rect key="frame" x="532" y="84" width="48" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0mi-qR-OpF"/>
-                                    <constraint firstAttribute="width" constant="48" id="rGV-GY-PkN"/>
-                                </constraints>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.96078431369999995" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelTapped:" destination="P7L-Bi-fa4" eventType="touchUpInside" id="oVn-Jo-PVq"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New chat name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="riG-Cy-I1c">
-                                <rect key="frame" x="20" y="122" width="560" height="30"/>
+                                <rect key="frame" x="20" y="84" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IKJ-Vt-tgY"/>
                                 </constraints>
@@ -196,11 +183,17 @@
                                     <constraint firstAttribute="height" constant="64" id="trP-Pf-1lS"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Contacts" id="8KH-vT-PlM"/>
+                                    <navigationItem title="Contacts" id="8KH-vT-PlM">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Q8m-Da-dCU">
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="P7L-Bi-fa4" id="mhg-uq-yGv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZy-01-GPs">
-                                <rect key="frame" x="0.0" y="160" width="600" height="440"/>
+                                <rect key="frame" x="0.0" y="122" width="600" height="478"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="Qkk-7d-tFF">
@@ -237,10 +230,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="riG-Cy-I1c" firstAttribute="trailing" secondItem="yqh-Cy-pRo" secondAttribute="trailingMargin" id="6Me-XW-PMg"/>
-                            <constraint firstItem="k3L-9J-4SZ" firstAttribute="top" secondItem="oHJ-En-ABE" secondAttribute="bottom" constant="20" id="GGq-oX-JVG"/>
-                            <constraint firstItem="riG-Cy-I1c" firstAttribute="top" secondItem="k3L-9J-4SZ" secondAttribute="bottom" constant="8" id="UGJ-aZ-aof"/>
+                            <constraint firstItem="riG-Cy-I1c" firstAttribute="top" secondItem="oHJ-En-ABE" secondAttribute="bottom" constant="20" id="DYG-UF-Y1w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oHJ-En-ABE" secondAttribute="trailing" constant="-20" id="WqG-bu-hTj"/>
-                            <constraint firstItem="k3L-9J-4SZ" firstAttribute="trailing" secondItem="yqh-Cy-pRo" secondAttribute="trailingMargin" id="cBQ-qn-SkG"/>
                             <constraint firstItem="oHJ-En-ABE" firstAttribute="top" secondItem="h9a-04-YUh" secondAttribute="bottom" constant="-20" id="j7Z-Uh-l9z"/>
                             <constraint firstItem="riG-Cy-I1c" firstAttribute="leading" secondItem="yqh-Cy-pRo" secondAttribute="leadingMargin" id="kG3-SU-ZPd"/>
                             <constraint firstItem="MZy-01-GPs" firstAttribute="leading" secondItem="yqh-Cy-pRo" secondAttribute="leadingMargin" constant="-20" id="mF4-HW-4mo"/>

@@ -18,7 +18,8 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
         chatNameField.becomeFirstResponder()
     }
 
-    @IBAction func cancelTapped(button: UIButton) {
+    @IBAction func cancelTapped(button: UIBarButtonItem) {
+        chatNameField.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
 
