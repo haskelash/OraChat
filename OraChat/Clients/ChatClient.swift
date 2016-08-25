@@ -11,8 +11,11 @@ import Alamofire
 private let endpoint = "https://private-d9e5b-oracodechallenge.apiary-mock.com/chats"
 
 class ChatClient {
-    class func getList(success success: ([Chat])->()) {
-        Alamofire.request(.GET, endpoint, parameters: ["q": "", "page": "1", "limit": "20"])
+    class func getList(search search: String? = nil, success: ([Chat])->()) {
+        var params = ["page": "1", "limit": "20"]
+        if search != nil { params["q"] = search }
+
+        Alamofire.request(.GET, endpoint, parameters: params)
             .responseJSON(completionHandler: { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response

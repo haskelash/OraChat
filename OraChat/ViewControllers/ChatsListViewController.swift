@@ -43,6 +43,14 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UISearch
         self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .None)
     }
 
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        ChatClient.getList(search: searchBar.text, success: { chats in
+            self.model = chats
+            self.tableView.reloadData()
+        })
+        searchBar.resignFirstResponder()
+    }
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
