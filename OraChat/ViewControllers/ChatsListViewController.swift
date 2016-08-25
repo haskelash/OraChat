@@ -51,6 +51,24 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UISearch
         self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .None)
     }
 
+    var shouldBeginEditing = true
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchBar.isFirstResponder() {
+            shouldBeginEditing = false
+        }
+        if searchBar.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) == "" {
+            self.searchModel = nil
+            self.tableView.reloadData()
+        }
+    }
+
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        let toReturn = shouldBeginEditing
+        shouldBeginEditing = true
+        return toReturn
+    }
+
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }

@@ -43,7 +43,7 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-        let name = chatNameField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let name = chatNameField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if name?.characters.count > 0 {
             if let newChatVC = self.storyboard?
                 .instantiateViewControllerWithIdentifier("InsideChatViewController") as? InsideChatViewController,
