@@ -185,7 +185,10 @@
                                     <constraint firstAttribute="height" constant="30" id="IKJ-Vt-tgY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="P7L-Bi-fa4" id="QpS-Jx-4W2"/>
+                                </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHJ-En-ABE">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
@@ -227,6 +230,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="P7L-Bi-fa4" id="ZPs-aX-L4v"/>
+                                    <outlet property="delegate" destination="P7L-Bi-fa4" id="g7X-4e-b1D"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -246,6 +250,9 @@
                             <constraint firstItem="oHJ-En-ABE" firstAttribute="leading" secondItem="yqh-Cy-pRo" secondAttribute="leadingMargin" constant="-20" id="xYq-Gf-7PV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chatNameField" destination="riG-Cy-I1c" id="e6n-2m-mSY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zl9-zm-NFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
