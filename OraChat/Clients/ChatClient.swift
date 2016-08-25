@@ -25,6 +25,16 @@ class ChatClient {
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
                     success(chatsFromJSON(JSON))
+
+                    //to simulate a smaller array in case of search,
+                    //comment out the above line and uncomment the lines below
+
+//                    let foo = chatsFromJSON(JSON)
+//                    if search == nil {
+//                        success([foo[0], foo[1], foo[0], foo[1]])
+//                    } else {
+//                        success(foo)
+//                    }
                 }
             })
     }
