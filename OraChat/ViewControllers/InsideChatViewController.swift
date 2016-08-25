@@ -8,14 +8,17 @@
 
 import UIKit
 
-class InsideChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class InsideChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     var chatID: Int?
 
     @IBOutlet private var tableView: UITableView!
+    private let dummyView = DummyView()
 
     private let cellIdentifier = "MessageCell"
     private var model = [Message]()
+    private var plusButtonHeight: CGFloat = 72
+
 
     override func viewDidLoad() {
         if let id = chatID {
@@ -24,6 +27,26 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
                 self.tableView.reloadData()
             })
         }
+
+        tableView.contentInset.bottom = plusButtonHeight
+        dummyView.delegate = self
+        view.addSubview(dummyView)
+    }
+
+    @IBAction func plusButtonTapped(button: UIButton) {
+        dummyView.becomeFirstResponder()
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let chatID = chatID, text = textField.text {
+            MessageClient.createMessage(chatID: chatID, message: text, success: { messageObject in
+                self.model.append(messageObject)
+                let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
+                self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .Right)
+            })
+        }
+        textField.text = nil
+        return true
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
