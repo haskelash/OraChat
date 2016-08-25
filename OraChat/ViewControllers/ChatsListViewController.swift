@@ -30,7 +30,9 @@ class ChatsListViewController: UIViewController, UITableViewDataSource {
             let insideChatVC = segue.destinationViewController as? InsideChatViewController,
             let selectedPath = tableView.indexPathForSelectedRow {
 
-            insideChatVC.chatID = model[selectedPath.row].chatID
+            let chat = model[selectedPath.row]
+            insideChatVC.chatID = chat.chatID
+            insideChatVC.chatName = chat.name
             tableView.deselectRowAtIndexPath(selectedPath, animated: true)
         }
     }

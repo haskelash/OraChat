@@ -30,6 +30,7 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
             })
         }
 
+        self.navigationItem.title = chatName
         tableView.contentInset.bottom = plusButtonHeight
         dummyView.delegate = self
         view.addSubview(dummyView)
