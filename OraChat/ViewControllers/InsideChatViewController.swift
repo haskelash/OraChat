@@ -38,7 +38,13 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print(textField.text)
+        if let chatID = chatID, text = textField.text {
+            MessageClient.createMessage(chatID: chatID, message: text, success: { messageObject in
+                self.model.append(messageObject)
+                let path = NSIndexPath(forRow: self.model.count-1, inSection: 0)
+                self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .Right)
+            })
+        }
         textField.text = nil
         return true
     }
