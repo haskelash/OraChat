@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             red: 0.961, green: 0.651, blue: 0.137, alpha: 1.00)
         UINavigationBar.appearance().tintColor = orange
         UITabBar.appearance().tintColor = orange
+        UISearchBar.appearance().tintColor = orange
 
         let tokenAndId = fetchTokenAndIdFromKeychain()
         if let _ = tokenAndId.token, let _ = tokenAndId.id {} else {
