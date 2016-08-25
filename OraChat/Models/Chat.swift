@@ -13,17 +13,16 @@ class Chat {
     var chatID: Int
     var name: String
     var author: String
-    var participant: String
+    var participant: String?
     var creationDate: NSDate?
-    var lastMessage: String
+    var lastMessage: String?
 
-    init(chatID: Int, name: String, author: String,
-         participant: String, creationString: String, lastMessage: String) {
+    init(chatID: Int, name: String, author: String, creationString: String,
+         participant: String? = nil, lastMessage: String? = nil) {
 
         self.chatID = chatID
         self.name = name
         self.author = author
-        self.participant = participant
 
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ssZ"
@@ -31,6 +30,7 @@ class Chat {
             self.creationDate = date
         }
 
+        self.participant = participant
         self.lastMessage = lastMessage
     }
 }

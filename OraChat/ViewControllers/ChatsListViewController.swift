@@ -14,12 +14,15 @@ class ChatsListViewController: UIViewController, UITableViewDataSource {
 
     private var model = [Chat]()
     private var cellIdentifier = "ChatCell"
+    private var plusButtonHeight: CGFloat = 72
 
     override func viewDidLoad() {
         ChatClient.getList(success: { chats in
             self.model = chats
             self.tableView.reloadData()
         })
+
+        tableView.contentInset.bottom = plusButtonHeight
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
