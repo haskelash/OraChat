@@ -24,7 +24,7 @@ class ChatGrouping: CustomStringConvertible {
             .map({$0!}).sort({ a, b in return a.isEarlierThan(b) })
 
         for date in dates {
-            groupedChats[date.roundedDownDate()] = []
+            groupedChats[date] = []
         }
 
         for chat in chats {
@@ -43,6 +43,16 @@ class ChatGrouping: CustomStringConvertible {
         }
     }
 
+    func path(chat: Chat) -> NSIndexPath? {
+        if let date = chat.creationDate?.roundedDownDate(),
+            let section = dates.indexOf(date),
+            let row = groupedChats[date]?.indexOf({ aChat in aChat === chat }) {
+
+            return NSIndexPath(forRow: row, inSection: section)
+        }
+        return nil
+    }
+
     subscript(index: Int) -> [Chat]? {
         return groupedChats[dates[index]]
     }
@@ -51,6 +61,7 @@ class ChatGrouping: CustomStringConvertible {
 extension NSDate {
     func roundedDownDate() -> NSDate {
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        calendar.timeZone = NSTimeZone(abbreviation: "GMT")!
         let comps = NSDateComponents()
         comps.year = calendar.component(.Year, fromDate: self)
         comps.month = calendar.component(.Month, fromDate: self)

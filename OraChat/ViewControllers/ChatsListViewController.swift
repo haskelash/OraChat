@@ -44,11 +44,12 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func addChat(chat: Chat) {
-        fullModel.append(chat)
+        fullModel.insert(chat)
         //TODO: only add to search model if chat matches search string by some criteria
-        searchModel?.append(chat)
-        let path = NSIndexPath(forRow: self.activeModel.count-1, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .None)
+        searchModel?.insert(chat)
+        if let path = activeModel.path(chat) {
+            self.tableView.insertRowsAtIndexPaths([path], withRowAnimation: .None)
+        }
     }
 
     var shouldBeginEditing = true
@@ -107,7 +108,10 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UITableV
         let style = NSMutableParagraphStyle()
         style.firstLineHeadIndent = 8.0
         style.tailIndent = -8.0
-        let str = activeModel.dates[section].formattedDateWithFormat("MMMM dd, yyyy")
+        let formatter = NSDateFormatter()
+        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
+        formatter.dateFormat = "MMMM dd, yyyy"
+        let str = formatter.stringFromDate(activeModel.dates[section])
         label.attributedText = NSAttributedString(string: str, attributes: [NSParagraphStyleAttributeName: style])
 
         return label

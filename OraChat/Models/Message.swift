@@ -23,7 +23,8 @@ class Message {
         self.author = author
 
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ssZ"
+        formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
+        formatter.timeZone = NSTimeZone(abbreviation: "GMT")
         if let date = formatter.dateFromString(creationString) {
             self.creationDate = date
         }
