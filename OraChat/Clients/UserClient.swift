@@ -27,54 +27,25 @@ private enum Endpoints: URLStringConvertible {
 
 class UserClient {
     class func register(params params: [String: AnyObject], success: ()->()) {
-        Alamofire.request(.POST, Endpoints.Register, parameters: params, encoding: .JSON)
-            .responseJSON(completionHandler: { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-
-                if let JSON = response.result.value {
-                    success()
-                    print("JSON: \(JSON)")
-
-                    if let id = JSON["data"]??["id"] as? Int,
-                        let email = JSON["data"]??["email"] as? String,
-                        let name = JSON["data"]??["name"] as? String,
-                        let token = JSON["data"]??["token"] as? String {
-
-                        KeychainAccount.save(email: email, name: name, token: token, id: id)
-                    }
-                }
-            })
+        let request = Alamofire.request(
+            .POST, Endpoints.Register, parameters: params, encoding: .JSON)
+            sendRequest(request, success: success)
     }
 
     class func login(params params: [String: AnyObject], success: ()->()) {
-        Alamofire.request(.POST, Endpoints.Login, parameters: params, encoding: .JSON)
-            .responseJSON(completionHandler: { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-
-                if let JSON = response.result.value {
-                    success()
-                    print("JSON: \(JSON)")
-
-                    if let id = JSON["data"]??["id"] as? Int,
-                        let email = JSON["data"]??["email"] as? String,
-                        let name = JSON["data"]??["name"] as? String,
-                        let token = JSON["data"]??["token"] as? String {
-
-                        KeychainAccount.save(email: email, name: name, token: token, id: id)
-                    }
-                }
-            })
+        let request = Alamofire.request(
+            .POST, Endpoints.Login, parameters: params, encoding: .JSON)
+        sendRequest(request, success: success)
     }
 
     class func edit(params params: [String: AnyObject], success: ()->()) {
-        Alamofire.request(.PUT, Endpoints.Edit, parameters: params, encoding: .JSON)
-            .responseJSON(completionHandler: { response in
+        let request = Alamofire.request(
+            .PUT, Endpoints.Edit, parameters: params, encoding: .JSON)
+        sendRequest(request, success: success)
+    }
+
+    private class func sendRequest(request: Request, success: ()->()) {
+            request.responseJSON(completionHandler: { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
                 print(response.data)     // server data
