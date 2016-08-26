@@ -46,7 +46,10 @@ class AccountFormViewController: UIViewController {
             formState = .Register
             reconcileFormState()
         case .Edit:
-            break
+            view.endEditing(true)
+            rightButton.enabled = false
+            passwordRegistrationField.text = nil
+            confirmField.text = nil
         }
     }
 
@@ -58,6 +61,25 @@ class AccountFormViewController: UIViewController {
             login()
         case .Edit:
             save()
+        }
+    }
+
+    @IBAction func editingChanged(textField: UITextField) {
+        if formState == .Register || formState == .Edit {
+            if nameField.text?.characters.count > 0
+                && validEmail(emailRegistrationField.text)
+                && passwordRegistrationField.text?.characters.count > 0
+                && confirmField.text?.characters.count > 0
+                && passwordRegistrationField.text == confirmField.text {
+
+                rightButton.enabled = true
+            } else { rightButton.enabled = false }
+        } else if formState == .Login {
+            if validEmail(emailLoginField.text)
+                && passwordLoginField.text?.characters.count > 0 {
+
+                rightButton.enabled = true
+            } else { rightButton.enabled = false }
         }
     }
 
@@ -91,7 +113,22 @@ class AccountFormViewController: UIViewController {
     }
 
     private func save() {
+        if let name = nameField.text,
+            let email = emailRegistrationField.text,
+            let password = passwordRegistrationField.text,
+            let confirm = confirmField.text {
 
+            UserClient.edit(params:[
+                "name": name,
+                "email": email,
+                "password":password,
+                "confirm":confirm
+                ], success: {
+                    self.view.endEditing(true)
+                    self.rightButton.enabled = false
+                }
+            )
+        }
     }
 
     private func goToTabBarVC() {
@@ -101,6 +138,8 @@ class AccountFormViewController: UIViewController {
     }
 
     private func reconcileFormState() {
+        UIView.setAnimationsEnabled(false)
+
         switch formState {
         case .Register:
             leftButton.title = "Login"
@@ -113,10 +152,47 @@ class AccountFormViewController: UIViewController {
             loginView.hidden = false
             registrationView.hidden = true
         case .Edit:
-            leftButton.title = nil
+            leftButton.title = "Cancel"
             rightButton.title = "Save"
             loginView.hidden = true
             registrationView.hidden = false
+        }
+
+        UIView.setAnimationsEnabled(true)
+
+        switch formState {
+        case .Register, .Login:
+            //reset all text fields
+            nameField.text = nil
+            emailRegistrationField.text = nil
+            passwordRegistrationField.text = nil
+            confirmField.text = nil
+            emailLoginField.text = nil
+            passwordLoginField.text = nil
+            rightButton.enabled = false
+        case .Edit:
+            //prepopulate user info, clear passwords
+            nameField.text = KeychainAccount.globalAccount.getName()
+            emailRegistrationField.text =  NSUserDefaults
+                .standardUserDefaults().stringForKey("userEmail")
+            passwordRegistrationField.text = nil
+            confirmField.text = nil
+            rightButton.enabled = false
+        }
+
+    }
+
+    private func validEmail(str: String?) -> Bool {
+        guard let str = str else { return false }
+        do {
+            let regex = try NSRegularExpression(
+                pattern: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+                options: .CaseInsensitive)
+            let matches = regex.numberOfMatchesInString(
+                str, options: [], range: NSMakeRange(0, str.characters.count))
+            return matches > 0
+        } catch {
+            return false
         }
     }
 }
