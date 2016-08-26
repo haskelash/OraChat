@@ -61,6 +61,25 @@ class AccountFormViewController: UIViewController {
         }
     }
 
+    @IBAction func editingChanged(textField: UITextField) {
+        if formState == .Register || formState == .Edit {
+            if nameField.text?.characters.count > 0
+                && validEmail(emailRegistrationField.text)
+                && passwordRegistrationField.text?.characters.count > 0
+                && confirmField.text?.characters.count > 0
+                && passwordRegistrationField.text == confirmField.text {
+
+                rightButton.enabled = true
+            } else { rightButton.enabled = false }
+        } else if formState == .Login {
+            if validEmail(emailLoginField.text)
+                && passwordLoginField.text?.characters.count > 0 {
+
+                rightButton.enabled = true
+            } else { rightButton.enabled = false }
+        }
+    }
+
     //private methods
 
     private func register() {
@@ -122,5 +141,39 @@ class AccountFormViewController: UIViewController {
         }
 
         UIView.setAnimationsEnabled(true)
+
+        switch formState {
+        case .Register, .Login:
+            //reset all text fields
+            nameField.text = nil
+            emailRegistrationField.text = nil
+            passwordRegistrationField.text = nil
+            confirmField.text = nil
+            emailLoginField.text = nil
+            passwordLoginField.text = nil
+            rightButton.enabled = false
+        case .Edit:
+            //prepopulate user info, clear passwords
+            emailRegistrationField.text =  NSUserDefaults
+                .standardUserDefaults().stringForKey("userEmail")
+            passwordRegistrationField.text = nil
+            confirmField.text = nil
+            rightButton.enabled = false
+        }
+
+    }
+
+    private func validEmail(str: String?) -> Bool {
+        guard let str = str else { return false }
+        do {
+            let regex = try NSRegularExpression(
+                pattern: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+                options: .CaseInsensitive)
+            let matches = regex.numberOfMatchesInString(
+                str, options: [], range: NSMakeRange(0, str.characters.count))
+            return matches > 0
+        } catch {
+            return false
+        }
     }
 }
