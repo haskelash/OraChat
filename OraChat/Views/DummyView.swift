@@ -14,6 +14,8 @@ import UIKit
 class DummyView: UIView, UITextFieldDelegate {
 
     var delegate: UITextFieldDelegate?
+    var placeholer: String?
+
     private var accessoryView: UIView?
     @IBOutlet private var accessoryTextField: UITextField?
     override var inputAccessoryView: UIView {
@@ -33,6 +35,7 @@ class DummyView: UIView, UITextFieldDelegate {
 
     override func becomeFirstResponder() -> Bool {
         super.becomeFirstResponder()
+        accessoryTextField?.placeholder = placeholer
         return accessoryTextField?.becomeFirstResponder() ?? false
     }
 
