@@ -10,22 +10,17 @@ import UIKit
 
 class NewChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
-    @IBOutlet private var chatNameField: UITextField!
-
+    private let dummyView = DummyView()
     private let cellIdentifier = "ContactCell"
 
     override func viewDidLoad() {
-        chatNameField.becomeFirstResponder()
+        view.addSubview(dummyView)
+        dummyView.delegate = self
     }
 
     @IBAction func cancelTapped(button: UIBarButtonItem) {
-        chatNameField.resignFirstResponder()
+        dummyView.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,8 +37,11 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        dummyView.becomeFirstResponder()
+    }
 
-        let name = chatNameField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let name = textField.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         if name?.characters.count > 0 {
             if let newChatVC = self.storyboard?
                 .instantiateViewControllerWithIdentifier("InsideChatViewController") as? InsideChatViewController,
@@ -58,8 +56,11 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
             dismissViewControllerAnimated(true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Enter a chat name first", message: nil, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
+                self.dummyView.becomeFirstResponder()
+            }))
             presentViewController(alert, animated: true, completion: nil)
         }
+        return true
     }
 }
