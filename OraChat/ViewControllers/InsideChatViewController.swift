@@ -35,6 +35,7 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
         dummyView.delegate = self
         view.addSubview(dummyView)
         if chatID == nil {
+            dummyView.placeholer = "What would you like to say?"
             dummyView.becomeFirstResponder()
         }
     }
@@ -54,6 +55,9 @@ class InsideChatViewController: UIViewController, UITableViewDataSource, UITable
             })
         } else if let name = chatName { //we also need to create a new chat
             ChatClient.createChat(name: name, success: {chat in
+                self.chatID = chat.chatID
+                self.dummyView.placeholer = nil
+
                 MessageClient.createMessage(chatID: chat.chatID, message: text, success: { messageObject in
                     chat.participant = messageObject.author
                     chat.lastMessage = messageObject.text

@@ -37,6 +37,7 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        dummyView.placeholer = "Enter chat name"
         dummyView.becomeFirstResponder()
     }
 
