@@ -34,6 +34,7 @@
 		8BA123CA1D6CC1F20086C2B1 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA123C91D6CC1F20086C2B1 /* MessageCell.swift */; };
 		8BC067461D6F57FB0066370A /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC067451D6F57FB0066370A /* NewChatViewController.swift */; };
 		8BC067481D6F80E90066370A /* ChatGrouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC067471D6F80E90066370A /* ChatGrouping.swift */; };
+		8BFAFA841D6FEB8E00208E05 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAFA831D6FEB8E00208E05 /* FormField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		8BA123C91D6CC1F20086C2B1 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = Views/MessageCell.swift; sourceTree = "<group>"; };
 		8BC067451D6F57FB0066370A /* NewChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewChatViewController.swift; path = ViewControllers/NewChatViewController.swift; sourceTree = "<group>"; };
 		8BC067471D6F80E90066370A /* ChatGrouping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatGrouping.swift; path = Models/ChatGrouping.swift; sourceTree = "<group>"; };
+		8BFAFA831D6FEB8E00208E05 /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormField.swift; path = Views/FormField.swift; sourceTree = "<group>"; };
 		95697A679B40A61E2BD3408D /* Pods_OraChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B53CE5C3A4ED01161E162A3 /* Pods-OraChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatTests/Pods-OraChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE7255C34D280CBE012BEE2D /* Pods-OraChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraChatUITests/Pods-OraChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				8B1868FE1D6D429600D2223C /* BubbleLabel.swift */,
 				8B03A5481D6EA6C10058C4D8 /* DummyView.swift */,
 				8B0FB5401D6E63A100CB0570 /* NewMessageView.swift */,
+				8BFAFA831D6FEB8E00208E05 /* FormField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				8B2CA2C01D6B566000FCDC7B /* AppDelegate.swift in Sources */,
 				8B0FB5411D6E63A100CB0570 /* NewMessageView.swift in Sources */,
 				8BC067461D6F57FB0066370A /* NewChatViewController.swift in Sources */,
+				8BFAFA841D6FEB8E00208E05 /* FormField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
