@@ -25,7 +25,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Account" id="hd1-lZ-v8K">
-                                        <barButtonItem key="leftBarButtonItem" id="uzB-sb-Dt8">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="uzB-sb-Dt8">
                                             <connections>
                                                 <action selector="leftButtonAction:" destination="LQ8-Qh-2A3" id="KbY-iC-OpS"/>
                                             </connections>

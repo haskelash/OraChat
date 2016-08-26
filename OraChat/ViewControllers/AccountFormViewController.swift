@@ -46,7 +46,10 @@ class AccountFormViewController: UIViewController {
             formState = .Register
             reconcileFormState()
         case .Edit:
-            break
+            view.endEditing(true)
+            rightButton.enabled = false
+            passwordRegistrationField.text = nil
+            confirmField.text = nil
         }
     }
 
@@ -149,7 +152,7 @@ class AccountFormViewController: UIViewController {
             loginView.hidden = false
             registrationView.hidden = true
         case .Edit:
-            leftButton.title = nil
+            leftButton.title = "Cancel"
             rightButton.title = "Save"
             loginView.hidden = true
             registrationView.hidden = false
