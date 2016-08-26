@@ -9,9 +9,14 @@
 import Alamofire
 
 class MessageClient {
+    static let headers = [
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json",
+        "Authorization": "Bearer \(KeychainAccount.globalAccount.getToken())"]
+
     class func getList(chatID chatID: Int, success: ([Message])->()) {
         let endpoint = "https://private-d9e5b-oracodechallenge.apiary-mock.com/chats/\(chatID)/messages"
-        Alamofire.request(.GET, endpoint, parameters: ["page": "1", "limit": "20"])
+        Alamofire.request(.GET, endpoint, headers: headers, parameters: ["page": "1", "limit": "20"])
             .responseJSON(completionHandler: { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
@@ -27,7 +32,7 @@ class MessageClient {
 
     class func createMessage(chatID chatID: Int, message: String, success: (Message)->()) {
         let endpoint = "https://private-d9e5b-oracodechallenge.apiary-mock.com/chats/\(chatID)/messages"
-        Alamofire.request(.POST, endpoint, parameters: ["message": message], encoding: .JSON)
+        Alamofire.request(.POST, endpoint, headers: headers, parameters: ["message": message], encoding: .JSON)
             .responseJSON(completionHandler: { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response

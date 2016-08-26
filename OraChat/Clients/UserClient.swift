@@ -26,21 +26,32 @@ private enum Endpoints: URLStringConvertible {
 }
 
 class UserClient {
+
     class func register(params params: [String: AnyObject], success: ()->()) {
+        let headers = [
+            "Content-Type": "application/json; charset=utf-8",
+            "Accept": "application/json"]
         let request = Alamofire.request(
-            .POST, Endpoints.Register, parameters: params, encoding: .JSON)
+            .POST, Endpoints.Register, headers: headers, parameters: params, encoding: .JSON)
             sendRequest(request, success: success)
     }
 
     class func login(params params: [String: AnyObject], success: ()->()) {
+        let headers = [
+            "Content-Type": "application/json; charset=utf-8",
+            "Accept": "application/json"]
         let request = Alamofire.request(
-            .POST, Endpoints.Login, parameters: params, encoding: .JSON)
+            .POST, Endpoints.Login, headers: headers, parameters: params, encoding: .JSON)
         sendRequest(request, success: success)
     }
 
     class func edit(params params: [String: AnyObject], success: ()->()) {
+        let headers = [
+            "Content-Type": "application/json; charset=utf-8",
+            "Accept": "application/json",
+            "Authorization": "Bearer \(KeychainAccount.globalAccount.getToken())"]
         let request = Alamofire.request(
-            .PUT, Endpoints.Edit, parameters: params, encoding: .JSON)
+            .PUT, Endpoints.Edit, headers: headers, parameters: params, encoding: .JSON)
         sendRequest(request, success: success)
     }
 
