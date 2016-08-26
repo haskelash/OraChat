@@ -10,50 +10,59 @@ import SwiftKeychain
 
 struct KeychainAccount: KeychainGenericPasswordType {
 
+    static var globalAccount: KeychainAccount = KeychainAccount.fetchRefreshedAccount()
+
     internal let accountName: String
+    private let name: String
     private let token: String
     private let id: Int
     internal var data = [String: AnyObject]()
 
     var dataToStore: [String: AnyObject] {
-        return ["token": token, "id": id]
+        return ["token": token, "name": name, "id": id]
     }
 
-    var accessToken: String? {
+    func getToken() -> String? {
         return data["token"] as? String
     }
 
-    var identifier: Int? {
+    func getName() -> String? {
+        return data["name"] as? String
+    }
+
+    func getId() -> Int? {
         return data["id"] as? Int
     }
 
-    init(name: String, accessToken: String = "", identifier: Int = -1) {
-        accountName = name
-        token = accessToken
-        id = identifier
+    init(email: String, name: String = "", token: String = "", id: Int = -1) {
+        accountName = email
+        self.name = name
+        self.token = token
+        self.id = id
     }
-}
 
-func saveToKeychain(email email: String, token: String, id: Int) {
-    NSUserDefaults.standardUserDefaults().setValue(email, forKey: "userEmail")
-    NSUserDefaults.standardUserDefaults().synchronize()
-    let account = KeychainAccount(name: email, accessToken: token, identifier: id)
-    do {
-        try account.saveInKeychain()
-    } catch {
-
+    static func fetchRefreshedAccount() -> KeychainAccount {
+        if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail") {
+            var account = KeychainAccount(email: email)
+            do {
+                try account.fetchFromKeychain()
+                return account
+            } catch {
+                print(error)
+            }
+        }
+        return KeychainAccount(email: "")
     }
-}
 
-func fetchTokenAndIdFromKeychain() -> (token: String?, id: Int?) {
-    if let email = NSUserDefaults.standardUserDefaults().stringForKey("userEmail") {
-        var account = KeychainAccount(name: email)
+    static func save(email email: String, name: String, token: String, id: Int) {
+        NSUserDefaults.standardUserDefaults().setValue(email, forKey: "userEmail")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        let account = KeychainAccount(email: email, name: name, token: token, id: id)
         do {
-            try account.fetchFromKeychain()
-            return (account.accessToken, account.identifier)
+            try account.saveInKeychain()
+            KeychainAccount.globalAccount = KeychainAccount.fetchRefreshedAccount()
         } catch {
             print(error)
         }
     }
-    return (nil, nil)
 }

@@ -22,8 +22,6 @@ class MessageCell: UITableViewCell {
         MessageCell.dateHeight +
         MessageCell.verticalSpacing
 
-    static let currentUserId: Int = {return fetchTokenAndIdFromKeychain().id! ?? -1}()
-
     static private let verticalSpacing: CGFloat = 10
     static private let smidgeOfExtraHeight: CGFloat = 2
     static private let spaceBetweenMessageAndDate: CGFloat = 2
@@ -75,7 +73,7 @@ class MessageCell: UITableViewCell {
         messageLabel.text = message.text
         timeAgoLabel.text = message.creationDate?.timeAgoSinceNow()
 
-        if message.userID == MessageCell.currentUserId {
+        if message.userID == KeychainAccount.globalAccount.getId() {
             messageLabel.side = .Right
             leftConstraint?.uninstall()
             rightConstraint?.install()

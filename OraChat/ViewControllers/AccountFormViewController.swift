@@ -154,6 +154,7 @@ class AccountFormViewController: UIViewController {
             rightButton.enabled = false
         case .Edit:
             //prepopulate user info, clear passwords
+            nameField.text = KeychainAccount.globalAccount.getName()
             emailRegistrationField.text =  NSUserDefaults
                 .standardUserDefaults().stringForKey("userEmail")
             passwordRegistrationField.text = nil

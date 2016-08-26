@@ -39,10 +39,11 @@ class UserClient {
                     print("JSON: \(JSON)")
 
                     if let id = JSON["data"]??["id"] as? Int,
-                        let email = JSON["data"]??["token"] as? String,
+                        let email = JSON["data"]??["email"] as? String,
+                        let name = JSON["data"]??["name"] as? String,
                         let token = JSON["data"]??["token"] as? String {
 
-                        saveToKeychain(email: email, token: token, id: id)
+                        KeychainAccount.save(email: email, name: name, token: token, id: id)
                     }
                 }
             })
@@ -61,10 +62,11 @@ class UserClient {
                     print("JSON: \(JSON)")
 
                     if let id = JSON["data"]??["id"] as? Int,
-                        let email = JSON["data"]??["token"] as? String,
+                        let email = JSON["data"]??["email"] as? String,
+                        let name = JSON["data"]??["name"] as? String,
                         let token = JSON["data"]??["token"] as? String {
 
-                        saveToKeychain(email: email, token: token, id: id)
+                        KeychainAccount.save(email: email, name: name, token: token, id: id)
                     }
                 }
             })

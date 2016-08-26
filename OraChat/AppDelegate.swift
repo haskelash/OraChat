@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = orange
         UISearchBar.appearance().tintColor = orange
 
-        let tokenAndId = fetchTokenAndIdFromKeychain()
-        if let _ = tokenAndId.token, let _ = tokenAndId.id {} else {
+        if let _ = KeychainAccount.globalAccount.getToken(),
+            let _ = KeychainAccount.globalAccount.getId() {} else {
+
             let registrationVC = self.window?.rootViewController?.storyboard?
                 .instantiateViewControllerWithIdentifier("AccountFormViewController") as? AccountFormViewController
             self.window?.rootViewController = registrationVC
