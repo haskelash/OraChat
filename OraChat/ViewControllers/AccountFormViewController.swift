@@ -110,7 +110,22 @@ class AccountFormViewController: UIViewController {
     }
 
     private func save() {
+        if let name = nameField.text,
+            let email = emailRegistrationField.text,
+            let password = passwordRegistrationField.text,
+            let confirm = confirmField.text {
 
+            UserClient.edit(params:[
+                "name": name,
+                "email": email,
+                "password":password,
+                "confirm":confirm
+                ], success: {
+                    self.view.endEditing(true)
+                    self.rightButton.enabled = false
+                }
+            )
+        }
     }
 
     private func goToTabBarVC() {
