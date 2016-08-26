@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ChatsListViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class ChatsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     @IBOutlet private var tableView: UITableView!
 
-    private var searchModel: [Chat]?
-    private var fullModel = [Chat]()
-    private var activeModel: [Chat] {
+    private var searchModel: ChatGrouping?
+    private var fullModel = ChatGrouping(chats: [])
+    private var activeModel: ChatGrouping {
         get {
             return searchModel ?? fullModel
         }
@@ -24,7 +24,7 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UISearch
 
     override func viewDidLoad() {
         ChatClient.getList(success: { chats in
-            self.fullModel = chats
+            self.fullModel = ChatGrouping(chats: chats)
             self.tableView.reloadData()
         })
 
@@ -34,12 +34,12 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UISearch
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GoToChatSegue",
             let insideChatVC = segue.destinationViewController as? InsideChatViewController,
-            let selectedPath = tableView.indexPathForSelectedRow {
+            let path = tableView.indexPathForSelectedRow,
+            let chat = activeModel[path.section]?[path.row] {
 
-            let chat = activeModel[selectedPath.row]
             insideChatVC.chatID = chat.chatID
             insideChatVC.chatName = chat.name
-            tableView.deselectRowAtIndexPath(selectedPath, animated: true)
+            tableView.deselectRowAtIndexPath(path, animated: true)
         }
     }
 
@@ -84,7 +84,7 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UISearch
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         ChatClient.getList(search: searchBar.text, success: { chats in
-            self.searchModel = chats
+            self.searchModel = ChatGrouping(chats: chats)
             self.tableView.reloadData()
         })
 
@@ -93,17 +93,36 @@ class ChatsListViewController: UIViewController, UITableViewDataSource, UISearch
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return activeModel.dates.count
+    }
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 26
+    }
+
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.backgroundColor = UIColor(red:0.969, green:0.969, blue:0.969, alpha:1.00)
+
+        let style = NSMutableParagraphStyle()
+        style.firstLineHeadIndent = 8.0
+        style.tailIndent = -8.0
+        let str = activeModel.dates[section].formattedDateWithFormat("MMMM dd, yyyy")
+        label.attributedText = NSAttributedString(string: str, attributes: [NSParagraphStyleAttributeName: style])
+
+        return label
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activeModel.count
+        return activeModel[section]?.count ?? 0
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ChatCell
 
-        cell.inject(chat: activeModel[indexPath.row])
+        if let chat = activeModel[indexPath.section]?[indexPath.row] {
+            cell.inject(chat: chat)
+        }
 
         return cell
     }
