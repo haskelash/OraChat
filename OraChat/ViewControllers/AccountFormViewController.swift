@@ -101,6 +101,8 @@ class AccountFormViewController: UIViewController {
     }
 
     private func reconcileFormState() {
+        UIView.setAnimationsEnabled(false)
+
         switch formState {
         case .Register:
             leftButton.title = "Login"
@@ -118,5 +120,7 @@ class AccountFormViewController: UIViewController {
             loginView.hidden = true
             registrationView.hidden = false
         }
+
+        UIView.setAnimationsEnabled(true)
     }
 }
