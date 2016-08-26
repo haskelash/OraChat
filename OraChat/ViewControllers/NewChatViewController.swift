@@ -12,6 +12,7 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
 
     private let dummyView = DummyView()
     private let cellIdentifier = "ContactCell"
+    private let names = ["Alice", "Bob", "Carl", "Dan", "Eve", "Frank", "George", "Harry", "Isabel", "John"]
 
     override func viewDidLoad() {
         view.addSubview(dummyView)
@@ -28,11 +29,13 @@ class NewChatViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        cell.textLabel?.text = names[indexPath.row]
+        return cell
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -209,22 +209,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qkk-7d-tFF" id="gva-OI-Clt">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-Nc-vh1">
-                                                    <rect key="frame" x="8" y="11" width="584" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Z7x-7l-Kcv"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="NBP-Nc-vh1" firstAttribute="centerY" secondItem="gva-OI-Clt" secondAttribute="centerY" id="8WV-yA-WOz"/>
-                                                <constraint firstItem="NBP-Nc-vh1" firstAttribute="trailing" secondItem="gva-OI-Clt" secondAttribute="trailingMargin" id="8b8-Wa-L8b"/>
-                                                <constraint firstItem="NBP-Nc-vh1" firstAttribute="leading" secondItem="gva-OI-Clt" secondAttribute="leadingMargin" id="Gpe-as-XAV"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
