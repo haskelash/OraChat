@@ -349,6 +349,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="92o-Xq-8fU" id="eWW-G1-CHh"/>
+                                    <outlet property="delegate" destination="92o-Xq-8fU" id="2Tg-fZ-lPb"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FU-Vb-iq3">
