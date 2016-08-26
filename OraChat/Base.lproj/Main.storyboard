@@ -136,7 +136,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="6ei-hd-LxF" secondAttribute="trailing" constant="-20" id="xpN-FY-2zK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" id="m5W-wk-EOX"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="Account" id="m5W-wk-EOX"/>
                     <connections>
                         <outlet property="confirmField" destination="GJR-kG-SyG" id="le4-9t-FSf"/>
                         <outlet property="emailLoginField" destination="skM-2i-grs" id="abR-Ao-LoY"/>
@@ -253,7 +253,7 @@
         <scene sceneID="wFf-NI-Htw">
             <objects>
                 <navigationController id="0aZ-p8-ITN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" id="h9t-3a-QCi"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="List" id="h9t-3a-QCi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Qs-Pz-yPJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -469,6 +469,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Account" width="22" height="22"/>
+        <image name="List" width="20" height="14"/>
         <image name="Plus" width="42" height="42"/>
     </resources>
 </document>
