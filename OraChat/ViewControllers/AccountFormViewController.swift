@@ -47,13 +47,13 @@ class AccountFormViewController: UIViewController {
             reconcileFormState()
         case .Edit:
             view.endEditing(true)
-            rightButton.enabled = false
-            passwordRegistrationField.text = nil
-            confirmField.text = nil
+            reconcileFormState()
         }
     }
 
     @IBAction func rightButtonAction(button: UIBarButtonItem) {
+        rightButton.enabled = false
+        view.endEditing(true)
         switch formState {
         case .Register:
             register()
@@ -146,11 +146,13 @@ class AccountFormViewController: UIViewController {
             rightButton.title = "Register"
             loginView.hidden = true
             registrationView.hidden = false
+            nameField.becomeFirstResponder()
         case .Login:
             leftButton.title = "Register"
             rightButton.title = "Login"
             loginView.hidden = false
             registrationView.hidden = true
+            emailLoginField.becomeFirstResponder()
         case .Edit:
             leftButton.title = "Cancel"
             rightButton.title = "Save"
@@ -160,26 +162,24 @@ class AccountFormViewController: UIViewController {
 
         UIView.setAnimationsEnabled(true)
 
+        //reset password fields, disable save/login/register button
+        passwordRegistrationField.text = nil
+        confirmField.text = nil
+        emailLoginField.text = nil
+        passwordLoginField.text = nil
+        rightButton.enabled = false
+
         switch formState {
         case .Register, .Login:
             //reset all text fields
             nameField.text = nil
             emailRegistrationField.text = nil
-            passwordRegistrationField.text = nil
-            confirmField.text = nil
-            emailLoginField.text = nil
-            passwordLoginField.text = nil
-            rightButton.enabled = false
         case .Edit:
-            //prepopulate user info, clear passwords
+            //prepopulate user info
             nameField.text = KeychainAccount.globalAccount.getName()
             emailRegistrationField.text =  NSUserDefaults
                 .standardUserDefaults().stringForKey("userEmail")
-            passwordRegistrationField.text = nil
-            confirmField.text = nil
-            rightButton.enabled = false
         }
-
     }
 
     private func validEmail(str: String?) -> Bool {
