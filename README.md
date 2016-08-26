@@ -30,4 +30,4 @@ $ pod install
 You can find a list of all pending issues and optimization [here](https://github.com/haskelash/OraChat/issues/1).
 
 ##Questions
-All inquiries may be forwarded to [Haskel Ash](mailto://haskelash@gmail.com)
+All inquiries may be forwarded to [Haskel Ash](mailto:haskelash@gmail.com)
